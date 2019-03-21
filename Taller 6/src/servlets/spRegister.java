@@ -1,3 +1,4 @@
+package servlets;
 
 import java.io.IOException;
 import java.sql.*;
@@ -40,14 +41,16 @@ public class spRegister extends HttpServlet {
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String firstName = request.getParameter("firstname");
-		
+
 			String pam1 = request.getParameter("firstname");
 			String pam2 = request.getParameter("lastname");
 			String pam3 = request.getParameter("email");
-			String pam4 = request.getParameter("cel");
+			String pam4 = request.getParameter("Cel");
 			String pam5 = request.getParameter("Password");
 			
+			if (pam1.isEmpty() | pam2.isEmpty() | pam3.isEmpty() | pam4.isEmpty() | pam5.isEmpty()) {
+				response.sendError(response.SC_NOT_IMPLEMENTED);
+			}
 			
 			try {
 				
@@ -65,9 +68,7 @@ public class spRegister extends HttpServlet {
 				e.printStackTrace();
 			}	
 			
-		if (firstName.isEmpty()) {
-			response.sendError(response.SC_NOT_IMPLEMENTED);
-		}
+
 	}
 
 }
