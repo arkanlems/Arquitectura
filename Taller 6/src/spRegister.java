@@ -1,6 +1,6 @@
 
-
 import java.io.IOException;
+import java.sql.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,31 +15,57 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/spRegister")
 public class spRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public spRegister() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public spRegister() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		RequestDispatcher view = request.getRequestDispatcher("/Register.html");
 		view.forward(request, response);
-		}
+
+	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String firstName = request.getParameter("firstname");
 		
-		if(firstName.isEmpty()) {
+			String pam1 = request.getParameter("firstname");
+			String pam2 = request.getParameter("lastname");
+			String pam3 = request.getParameter("email");
+			String pam4 = request.getParameter("cel");
+			String pam5 = request.getParameter("Password");
+			
+			
+			try {
+				
+				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taller_6", "root", "password");			
+				Statement stmt = conn.createStatement();
+				
+				String sql_insert_query = "insert into user (nombre, apellido, password, email, telefono)" +
+						" values ('" + pam1 + "', '" + pam2 + "', '" + pam5 + "', '" + pam3 + "', " + pam4 +")";
+				
+				stmt.executeUpdate(sql_insert_query);
+				System.out.println("insert successful!");
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+			
+		if (firstName.isEmpty()) {
 			response.sendError(response.SC_NOT_IMPLEMENTED);
 		}
 	}
