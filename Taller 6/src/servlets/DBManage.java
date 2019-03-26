@@ -7,12 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sun.net.httpserver.HttpContext;
 
 /**
  * Servlet implementation class DBManage
@@ -81,7 +84,55 @@ public class DBManage extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+			
 		}
+		
+		if(request.getAttribute("solicitud").equals("login")) {
+			
+			try {
+				Statement stmt;
+				stmt = conn.createStatement();
+				String sql_insert_query = "select email, password from user "
+						+ "where email= '"+request.getAttribute("email")+"' and password = '"+request.getAttribute("password")+"';";
+				//System.out.println(sql_insert_query);
+				ResultSet r = stmt.executeQuery(sql_insert_query);
+				if(r.first()) {
+					System.out.println("login successful!");
+					
+				}else {
+					System.out.println("login fail!");	
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			RequestDispatcher view = request.getRequestDispatcher("/index.html");
+			view.forward(request, response);
+		}
+		if(request.getAttribute("solicitud").equals("cambiopass")) {
+			
+			try {
+				Statement stmt;
+				stmt = conn.createStatement();
+				String sql_insert_query = "UPDATE user " + 
+						"SET password = '"+request.getAttribute("password2") +"' " + 
+						"WHERE email = '"+request.getAttribute("email")+"';";
+				System.out.println(sql_insert_query);
+				stmt.executeUpdate(sql_insert_query);
+				
+				System.out.println("update successful!");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
+		RequestDispatcher view = request.getRequestDispatcher("/index.html");
+		view.forward(request, response);
 	}
 
 	/**

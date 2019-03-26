@@ -38,8 +38,16 @@ public class spLogin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String pam1 = request.getParameter("Email");
+		String pam2 = request.getParameter("Password");
+		
+		request.setAttribute("solicitud","login");
+		request.setAttribute("email",pam1);
+		request.setAttribute("password",pam2);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("./DBManage");
+		rd.forward(request,response);
 	}
 
 }
