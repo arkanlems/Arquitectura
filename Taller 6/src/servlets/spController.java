@@ -23,7 +23,6 @@ public class spController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
-	Connection conn = null;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -33,24 +32,7 @@ public class spController extends HttpServlet {
 	}
 	
 	public void init(ServletConfig config) throws ServletException {
-		try {
-
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taller_6", "root", "1234");
-			
-			Statement stmt = conn.createStatement();
-			
-			ResultSet myRs = stmt.executeQuery("select * from user");
-						
-			while (myRs.next()) 
-			{
-				System.out.println(myRs.getString("nombre")+ ", " + myRs.getString("apellido") +
-						", " + myRs.getString("password")+ ", " + myRs.getString("email") + ", " + myRs.getInt("telefono"));				
-			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
 	/**
