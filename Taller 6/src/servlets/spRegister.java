@@ -30,8 +30,7 @@ public class spRegister extends HttpServlet {
 	
 	public void init(ServletConfig config) throws ServletException {
 	
-	}
-	
+	}	
 	
 
 	/**

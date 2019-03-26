@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Register form</title>
-
+	<meta charset="ISO-8859-1">
+	<title>Register form</title>
 </head>
+<script> 
+	function scripterino()                                    
+	{ 
+		var p1 = document.forms["reg_form"]["Password"];  
+	    var p2 = document.forms["reg_form"]["2P"];  
+		
+		if (p2.value != p1.value)                                  
+	    { 
+	        window.alert("Passwords diferentes, verifique otra vez."); 
+	        p2.focus(); 
+	        return false; 
+	    } 
+	}
+</script>
 <body>
-	<form action="spRegister" method="post">
+	<form name="reg_form" action="spRegister" method="post" onsubmit="return scripterino()">
 
-		First name:<br> <input type="text" name="firstname"><br>
-		Last name:<br> <input type="text" name="lastname"><br>
-		Email:<br> <input type="text" name="Email"><br>
-		Cellphone:<br> <input type="text" name="Cel"><br>
-		Password:<br> <input type="text" name="Password"><br>
+		First name:<br> <input type="text" name="firstname" required><br>
+		Last name:<br> <input type="text" name="lastname" required><br>
+		Email:<br> <input type="email" name="Email" required><br>
+		Cellphone:<br> <input type="tel" name="Cel" required pattern="[0-9]{7,10}"><br>
+		Password:<br> <input type="password" name="Password" required ><br>
+		Verify Password:<br> <input type="password" name="2P" required ><br>
 
 		<input type="submit" value="Register" name="registro" />
 

@@ -39,7 +39,7 @@ public class DBManage extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		try {
 
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taller_6", "root", "1234");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taller_6", "root", "password");
 			
 			Statement stmt = conn.createStatement();
 			
@@ -69,6 +69,7 @@ public class DBManage extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		if(request.getAttribute("solicitud").equals("registro")) {
 			
 			try {
@@ -87,6 +88,8 @@ public class DBManage extends HttpServlet {
 			
 		}
 		
+		
+		//LOGIN
 		if(request.getAttribute("solicitud").equals("login")) {
 			
 			try {
@@ -96,6 +99,7 @@ public class DBManage extends HttpServlet {
 						+ "where email= '"+request.getAttribute("email")+"' and password = '"+request.getAttribute("password")+"';";
 				//System.out.println(sql_insert_query);
 				ResultSet r = stmt.executeQuery(sql_insert_query);
+				System.out.println(check_email((String) request.getAttribute("email")));
 				if(r.first()) {
 					System.out.println("login successful!");
 					
@@ -111,6 +115,8 @@ public class DBManage extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("/index.html");
 			view.forward(request, response);
 		}
+		
+		//CAMBIO PASSWORD
 		if(request.getAttribute("solicitud").equals("cambiopass")) {
 			
 			try {
@@ -141,6 +147,28 @@ public class DBManage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	public Boolean check_email(String email) {
+		
+		try {			
+			Statement stmt;
+			stmt = conn.createStatement();
+			
+			ResultSet myRs = stmt.executeQuery("select email from user");
+			
+			while (myRs.next()) 
+			{
+				if(myRs.getString("email").contentEquals(email))
+				{
+					return true;					
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }
