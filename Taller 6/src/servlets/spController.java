@@ -35,7 +35,7 @@ public class spController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		try {
 
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taller_6", "root", "password");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taller_6", "root", "1234");
 			
 			Statement stmt = conn.createStatement();
 			

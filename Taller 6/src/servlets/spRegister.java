@@ -44,17 +44,17 @@ public class spRegister extends HttpServlet {
 
 			String pam1 = request.getParameter("firstname");
 			String pam2 = request.getParameter("lastname");
-			String pam3 = request.getParameter("email");
+			String pam3 = request.getParameter("Email");
 			String pam4 = request.getParameter("Cel");
 			String pam5 = request.getParameter("Password");
 			
-			if (pam1.isEmpty() | pam2.isEmpty() | pam3.isEmpty() | pam4.isEmpty() | pam5.isEmpty()) {
+			if (pam1.isEmpty() || pam2.isEmpty() || pam3.isEmpty() || pam4.isEmpty() || pam5.isEmpty()) {
 				response.sendError(response.SC_NOT_IMPLEMENTED);
 			}
 			
 			try {
 				
-				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taller_6", "root", "password");			
+				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/taller_6", "root", "1234");			
 				Statement stmt = conn.createStatement();
 				
 				String sql_insert_query = "insert into user (nombre, apellido, password, email, telefono)" +
