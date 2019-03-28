@@ -68,8 +68,8 @@ public class spRegister extends HttpServlet {
 			request.setAttribute("password",pam5);	
 			
 			RequestDispatcher rd = request.getRequestDispatcher("./DBManage");
-			rd.forward(request,response);
-
+			rd.forward(request,response);			
+					
 	}
 
 }

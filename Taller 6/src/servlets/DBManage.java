@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sun.net.httpserver.HttpContext;
 
@@ -81,7 +82,9 @@ public class DBManage extends HttpServlet {
 				stmt.executeUpdate(sql_insert_query);
 				System.out.println("insert successful!");
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+				
+				RequestDispatcher view = request.getRequestDispatcher("/Register.html");
+				view.forward(request, response);
 				e.printStackTrace();
 			}
 			
@@ -99,12 +102,14 @@ public class DBManage extends HttpServlet {
 						+ "where email= '"+request.getAttribute("email")+"' and password = '"+request.getAttribute("password")+"';";
 				//System.out.println(sql_insert_query);
 				ResultSet r = stmt.executeQuery(sql_insert_query);
-				System.out.println(check_email((String) request.getAttribute("email")));
+				
 				if(r.first()) {
 					System.out.println("login successful!");
+					HttpSession session = request.getSession(true);
 					
 				}else {
-					System.out.println("login fail!");	
+					System.out.println("login fail!");
+					HttpSession session = request.getSession(false);
 				}
 				
 			} catch (SQLException e) {
