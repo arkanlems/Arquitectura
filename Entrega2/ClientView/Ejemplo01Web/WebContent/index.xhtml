@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+<title>Pagina de inicio</title>
+<style type="text/css" media="screen">
+@import 'style.css';
+</style>
+</head>
+
+<body>
+	<div id="header">
+		<div id="logo">
+			<h1>Arquitectura de Software</h1>
+			<br></br>
+			<h2 class="title">Ejemplo JSF + JavaBeans + EJBs + JPA</h2>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+		<ul>
+			<h:form>
+				<li><h:commandLink action="#{controladorNavegacion.showPage}"
+						value="Login">
+						<f:param name="pageId" value="1" />
+					</h:commandLink></li>
+				<li><h:commandLink action="#{controladorNavegacion.showPage}"
+						value="Adicionar usuarios">
+						<f:param name="pageId" value="2" />
+					</h:commandLink></li>
+				<li><h:commandLink action="#{controladorNavegacion.showPage}"
+						value="Consultar usuarios">
+						<f:param name="pageId" value="3" />
+					</h:commandLink></li>
+			</h:form>
+		</ul>
+	</div>
+	<!-- end #menu -->
+</body>
+</html>

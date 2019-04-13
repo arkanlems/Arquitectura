@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+<title>Pagina de ingreso</title>
+<style type="text/css" media="screen">
+@import 'style.css';
+</style>
+</head>
+
+<h:body>
+	<div id="header">
+		<div id="logo">
+			<h1>Arquitectura de Software</h1>
+			<h2 class="title">Ejemplo JSF + JavaBeans + EJBs + JPA</h2>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+		<h2 class="title">Listado de usuarios</h2>
+	</div>
+	<!-- end #menu -->
+
+	<!-- Muestra la lista de usuarios -->
+	<h:dataTable value="#{controlador.listaUsuarios}" var="user" border="1">
+
+		<f:facet name="header">
+			<h:outputText value="Usuarios" />
+		</f:facet>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="idUsuario" />
+			</f:facet>
+			<h:outputText value="#{user.idusuario}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="nombres" />
+			</f:facet>
+			<h:outputText value="#{user.nombres}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="apellidos" />
+			</f:facet>
+			<h:outputText value="#{user.apellidos}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="login" />
+			</f:facet>
+			<h:outputText value="#{user.userName}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="password" />
+			</f:facet>
+			<h:outputText value="#{user.password}" />
+		</h:column>
+
+	</h:dataTable>
+
+	<h:form>
+		<h:commandButton value="Aceptar"
+			action="#{controlador.listarExito()}" />
+	</h:form>
+</h:body>
+</html>
