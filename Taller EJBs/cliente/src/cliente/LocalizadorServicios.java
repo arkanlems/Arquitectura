@@ -18,7 +18,7 @@ public class LocalizadorServicios {
 	private PrimerServicioRemote lookupFachadaLogicaBean(String namespace) throws NamingException {
 		Context ctx = createInitialContext();
 		String appName = "";
-		String moduleName = "proyectoEJB";
+		String moduleName = "ProyectoEJB2";
 		String distinctName = "";
 		String beanName = PrimerServicio.class.getSimpleName();
 		String viewClassName = PrimerServicioRemote.class.getName();
@@ -31,7 +31,7 @@ public class LocalizadorServicios {
 		jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
 		jndiProperties.put(Context.PROVIDER_URL, "http-remoting://localhost:8090");
 		jndiProperties.put(Context.SECURITY_PRINCIPAL, "test");
-		jndiProperties.put(Context.SECURITY_CREDENTIALS, "123*");
+		jndiProperties.put(Context.SECURITY_CREDENTIALS, "123");
 		jndiProperties.put("jboss.naming.client.ejb.context", true);
 		return new InitialContext(jndiProperties);
 	}
