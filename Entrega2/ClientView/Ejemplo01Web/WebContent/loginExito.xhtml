@@ -24,12 +24,44 @@
 		<h2 class="title"></h2>
 	</div>
 	<!-- end #menu -->
-
-	<h2>Operación exitosa.</h2>
+	
 	<h:form>
-		<h:commandButton value="Aceptar"
-			action="#{controlador.loginExito()}"></h:commandButton>
-	</h:form>	
+	<div>
+		<h:inputText type="text" id="text_1"
+			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-zmjf">
+		</h:inputText>
+		<label id="label_1"
+			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-cgmf">Username</label>
+		<h:inputText type="text" id="text_2" class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-ofq8">	
+		</h:inputText>
+		<h:inputText type="text" id="text_4" class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-1vwk">
+    	</h:inputText>
+    	<label id="label_2" class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-ku4e">Nombres</label>
+   		<label id="label_4" class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-1a2c">Correo</label>
+    	<h:inputText type="text" id="text_3" class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-f6w2">
+    	</h:inputText>
+    	<label id="label_3" class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-1mba">Apellidos</label>
+    	<h:inputText type="text" id="text_5" class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-1acw gwd-input-1ycf">
+    	</h:inputText>
+    	<label id="label_5" class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-z2ma">Celular</label>
+    	<h:inputText type="text" id="text_7" class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-1acw gwd-input-1j9i">
+    	</h:inputText>
+    	<label id="label_7" class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-17oy">Nacionalidad</label>
+    	<h:inputText type="text" id="text_6" class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-1acw gwd-input-1jtx gwd-input-o81v">
+    	</h:inputText>
+    	<label id="label_6" class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-13kn gwd-label-130g">Idioma</label>
+    	<h:inputText type="text" id="text_8" class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-1acw gwd-input-1jtx gwd-input-1mno">
+    	</h:inputText>
+    	<label id="label_8" class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-13kn gwd-label-id8x">Genero</label>
+		<img src="images/02th-egg-person.jpg" id="02th-egg-person" class="gwd-img-z7al"/>
 		
+		<h:commandButton value ="Editar" action="#{controlador.loginExito()}" class="gwd-button-jq9i gwd-button-kv7y"></h:commandButton>
+    	<h:commandButton value ="Jugar" action="#{controlador.loginExito()}" class="gwd-button-jq9i gwd-button-17yy"></h:commandButton>
+    	<h:commandButton value ="VerEstadisticas " action="#{controlador.loginExito()}" class="gwd-button-jq9i gwd-button-gs18"></h:commandButton>
+	</div>
+	
+	</h:form>
+	
 </body>
+
 </html>
