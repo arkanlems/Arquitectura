@@ -6,9 +6,9 @@ import javax.ejb.Local;
 @Local
 public interface ServiceEstadisticasLocal {
 
-	public List<Usuario> findEstadistica(int id);
+	public List<Estadisticas> findEstadistica(int id);
 	
-	public String insertarEstadistica(Estadisticas usuario);
+	public String insertarEstadistica(Estadisticas estadisticas);
 	
-	public List<Usuario> findAllEstadisticas();	
+	public List<Estadisticas> findAllEstadisticas();	
 }
