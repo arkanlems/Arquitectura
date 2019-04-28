@@ -11,6 +11,9 @@ import javax.persistence.Table;
 @NamedQuery(name="Estadisticas.findAll", query="SELECT e FROM Estadisticas e")
 public class Estadisticas implements Serializable{
 	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -29,6 +32,12 @@ public class Estadisticas implements Serializable{
 	public Estadisticas() {
 		
 	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+
 
 	public int getUsuarios_id() {
 		return usuarios_id;

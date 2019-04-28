@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
+import dataModel.Estadisticas;
 import dataModel.Usuario;
 import logica.FachadaLogicaBeanRemote;
 
@@ -23,11 +24,18 @@ public class Controlador {
 	@EJB
 	public Usuario nuevoUsuario;
 	
+	@EJB
+	public Estadisticas estadisticas;
+	
+	@EJB
+	public Estadisticas nuevaEst;
+	
 	public List<Usuario> listaUsuarios;	
 
 	public Controlador() {
 		// TODO Auto-generated constructor stub
 		this.nuevoUsuario = new Usuario();
+		this.nuevaEst = new Estadisticas();
 		this.listaUsuarios = new ArrayList<Usuario>();
 	}
 
@@ -68,9 +76,21 @@ public class Controlador {
 
 		System.out.println("Solicitud recibida: " + nuevoUsuario.getid() + " " + nuevoUsuario.getNombres() + " "
 				+ nuevoUsuario.getApellidos() + " " + nuevoUsuario.getusuario() + " " + nuevoUsuario.getcontrasenia());
-
+		
 		// Invoca el servicio remoto (retorna exito o existe)
-		return fachadaLogica.insertarUsuario(nuevoUsuario);
+		String result = fachadaLogica.insertarUsuario(nuevoUsuario);
+		Usuario aux = fachadaLogica.findUsuario(nuevoUsuario.getusuario(), nuevoUsuario.getcontrasenia());
+		if(aux != null) {
+			System.out.println("no estoy vacio ñero"+aux.getid());
+		}
+		System.out.println("voy a asignar id");
+		nuevaEst.setUsuarios_id(aux.getid());
+		System.out.println("asigne id");
+		
+		
+		return  fachadaLogica.insertarEstadisticas(nuevaEst);
+		
+		
 
 	}
 

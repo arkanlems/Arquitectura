@@ -5,6 +5,9 @@ import java.util.List;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
+import dataModel.Estadisticas;
+import dataModel.ServiceEstadisticas;
+import dataModel.ServiceEstadisticasLocal;
 import dataModel.ServiceUsuario;
 import dataModel.ServiceUsuarioLocal;
 import dataModel.Usuario;
@@ -32,6 +35,7 @@ public class FachadaLogicaBean implements FachadaLogicaBeanRemote {
     	if (usuarios == null || usuarios.isEmpty())
     		return null;
     	
+    	System.out.println("oli en find usuario");
     	Usuario usuario = (Usuario) usuarios.get(0);
     	
     	System.out.println(usuario.getApellidos() + " " + usuario.getNombres());
@@ -51,6 +55,29 @@ public class FachadaLogicaBean implements FachadaLogicaBeanRemote {
     	ServiceUsuarioLocal x = new ServiceUsuario();
     	
     	return x.findAllUsuarios();
+	}
+
+	@Override
+	public Estadisticas findEstadisticas(int id) {
+		ServiceEstadisticasLocal x = new ServiceEstadisticas();
+    	
+    	List<Estadisticas> estadisticas = (List<Estadisticas>) x.findEstadistica(id);
+    	
+    	if (estadisticas == null || estadisticas.isEmpty())
+    		return null;
+    	
+    	System.out.println("oli en ");
+    	Estadisticas estadistica = (Estadisticas) estadisticas.get(0);
+    	
+    	System.out.println("se encontro las estadisticas del usuario id: "+estadistica.getUsuarios_id());
+    	
+    	return estadistica;
+	}
+
+	public String insertarEstadisticas(Estadisticas estadisticas) {
+		ServiceEstadisticasLocal x = new ServiceEstadisticas();
+    	System.out.println("entre a insertarEstadisticas");
+    	return x.insertarEstadistica(estadisticas);
 	}
 	
 	//------------------------------------------------------------------------------	
