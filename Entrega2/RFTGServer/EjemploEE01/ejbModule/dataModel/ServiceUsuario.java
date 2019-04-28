@@ -53,10 +53,8 @@ public class ServiceUsuario implements ServiceUsuarioLocal {
 	public String insertarUsuario(Usuario usuario) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			System.out.println("entre a insertar usuario");
-			Usuario user = em.find(Usuario.class, usuario.getid());
+			Usuario user = em.find(Usuario.class, usuario.getusuario());
 			if (user == null) {
-				
 				em.persist(usuario);
 				return "insertado";
 			}
@@ -64,14 +62,6 @@ public class ServiceUsuario implements ServiceUsuarioLocal {
 				return "existe";
 		}finally {
 			em.close();
-			//Estadisticas n = new Estadisticas();
-			//System.out.println("voy a insertar la estadistica");
-			//n.setUsuarios_id(this.findUsuario(usuario.getusuario(), usuario.getcontrasenia()).get(0).getid());
-			//System.out.println("obtuve el id");
-			//n.setUsuarios_id(usuario.getid());
-			//ServiceEstadisticas se = new ServiceEstadisticas();
-			//se.insertarEstadistica(n);
-			
 		}
 	}
 
