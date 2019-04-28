@@ -27,21 +27,19 @@ public class ServiceUsuario implements ServiceUsuarioLocal {
 	}
 
 	@Override
-	public List<Usuario> findUsuario(String Usuario, String password) {
+	public List<Usuario> findUsuario(String userName, String password) {
 		EntityManager em = emf.createEntityManager();
 		try {
 
-			String consulta = "SELECT u FROM Usuario u WHERE u.usuario = ?1 AND u.contrasenia = ?2";
+			String consulta = "SELECT u FROM Usuario u WHERE u.userName=:userName AND u.password=:password";
 
 			TypedQuery<Usuario> query = em.createQuery(consulta, Usuario.class);
-			query.setParameter(1, Usuario);
-			query.setParameter(2, password);
+			query.setParameter("userName", userName);
+			query.setParameter("password", password);
 			query.setMaxResults(1);
 
 			List<Usuario> resultList = query.getResultList();
-			
-			System.out.println("getResult executed");
-			
+
 			return resultList;
 
 		} finally {
@@ -53,7 +51,7 @@ public class ServiceUsuario implements ServiceUsuarioLocal {
 	public String insertarUsuario(Usuario usuario) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			Usuario user = em.find(Usuario.class, usuario.getusuario());
+			Usuario user = em.find(Usuario.class, usuario.getIdusuario());
 			if (user == null) {
 				em.persist(usuario);
 				return "insertado";

@@ -1,8 +1,6 @@
 package dataModel;
 
 import java.io.Serializable;
-import java.sql.Date;
-
 import javax.persistence.*;
 
 
@@ -17,35 +15,25 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int id;
+	private int idusuario;
+
+	private String apellidos;
 
 	private String nombres;
 
-	private String apellidos;
-	
-	private String correo;
-	
-	private String celular;
-	
-	private String nacionalidad;
-	
-	private String idioma;
-	
-	private char genero;
-	
-	private String contrasenia;
+	private String password;
 
-	private String usuario;
+	private String userName;
 
 	public Usuario() {
 	}
 
-	public int getid() {
-		return this.id;
+	public int getIdusuario() {
+		return this.idusuario;
 	}
 
-	public void setid(int id) {
-		this.id = id;
+	public void setIdusuario(int idusuario) {
+		this.idusuario = idusuario;
 	}
 
 	public String getApellidos() {
@@ -64,65 +52,20 @@ public class Usuario implements Serializable {
 		this.nombres = nombres;
 	}
 
-	public String getcontrasenia() {
-		return this.contrasenia;
+	public String getPassword() {
+		return this.password;
 	}
 
-	public void setcontrasenia(String contrasenia) {
-		this.contrasenia = contrasenia;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public String getusuario() {
-		return this.usuario;
+	public String getUserName() {
+		return this.userName;
 	}
 
-	public void setusuario(String usuario) {
-		this.usuario = usuario;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public String getCorreo() {
-		return correo;
-	}
-
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
-
-	public String getCelular() {
-		return celular;
-	}
-
-	public void setCelular(String celular) {
-		this.celular = celular;
-	}
-
-	public String getNacionalidad() {
-		return nacionalidad;
-	}
-
-	public void setNacionalidad(String nacionalidad) {
-		this.nacionalidad = nacionalidad;
-	}
-
-	public String getIdioma() {
-		return idioma;
-	}
-
-	public void setIdioma(String idioma) {
-		this.idioma = idioma;
-	}
-
-
-	public char getGenero() {
-		return genero;
-	}
-
-	public void setGenero(char genero) {
-		this.genero = genero;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
 }
