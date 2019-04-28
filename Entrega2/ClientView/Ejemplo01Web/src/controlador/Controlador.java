@@ -66,8 +66,8 @@ public class Controlador {
 		LocalizadorServicios localizadorServicios = new LocalizadorServicios();
 		FachadaLogicaBeanRemote fachadaLogica = localizadorServicios.getServicio1();
 
-		System.out.println("Solicitud recibida: " + nuevoUsuario.getid() + " " + nuevoUsuario.getNombres() + " "
-				+ nuevoUsuario.getApellidos() + " " + nuevoUsuario.getusuario() + " " + nuevoUsuario.getcontrasenia());
+		System.out.println("Solicitud recibida: " + nuevoUsuario.getIdusuario() + " " + nuevoUsuario.getNombres() + " "
+				+ nuevoUsuario.getApellidos() + " " + nuevoUsuario.getUserName() + " " + nuevoUsuario.getPassword());
 
 		// Invoca el servicio remoto (retorna exito o existe)
 		return fachadaLogica.insertarUsuario(nuevoUsuario);

@@ -6,7 +6,7 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <head>
-<title>RFTG - Register</title>
+<title>Pagina de ingreso</title>
 <style type="text/css" media="screen">
 @import 'style.css';
 </style>
@@ -15,37 +15,29 @@
 <h:body>
 	<div id="header">
 		<div id="logo">
-			<h1>Race For The Galaxy</h1>
-			<h2 class="title">Online</h2>
+			<h1>Arquitectura de Software</h1>
+			<h2 class="title">Ejemplo JSF + JavaBeans + EJBs + JPA</h2>
 		</div>
 	</div>
 	<!-- end #header -->
 	<div id="menu">
-		<h2 class="title">Register</h2>
+		<h2 class="title">Ingresar usuarios</h2>
 	</div>
 	<!-- end #menu -->
 	<h:form>
 		<h:panelGrid columns="2">
+			<h:outputLabel value="Id : " />
+			<h:inputText value="#{controlador.nuevoUsuario.idusuario}" />
 			<h:outputLabel value="Nombres : " />
 			<h:inputText value="#{controlador.nuevoUsuario.nombres}" />
 			<h:outputLabel value="Apellidos :" />
 			<h:inputText value="#{controlador.nuevoUsuario.apellidos}" />
-			<h:outputLabel value="Correo : " />
-			<h:inputText value="#{controlador.nuevoUsuario.correo}" />
-			<h:outputLabel value="Celular : " />
-			<h:inputText value="#{controlador.nuevoUsuario.celular}" />
-			<h:outputLabel value="Nacionalidad : " />
-			<h:inputText value="#{controlador.nuevoUsuario.nacionalidad}" />
-			<h:outputLabel value="Idioma : " />
-			<h:inputText value="#{controlador.nuevoUsuario.idioma}" />
-			<h:outputLabel value="Genero : " />
-			<h:inputText value="#{controlador.nuevoUsuario.genero}" />
 			<h:outputLabel value="Usuario(UserName) : " />
-			<h:inputText value="#{controlador.nuevoUsuario.usuario}" />
+			<h:inputText value="#{controlador.nuevoUsuario.userName}" />
 			<h:outputLabel value="Clave(Password) : " />
-			<h:inputText value="#{controlador.nuevoUsuario.contrasenia}" />
+			<h:inputText value="#{controlador.nuevoUsuario.password}" />
 		</h:panelGrid>
-		<h:commandButton value="Registrarse"
+		<h:commandButton value="Adicionar nuevo usuario"
 			action="#{controlador.insertarUsuario()}" />
 	</h:form>
 	</h:body>
