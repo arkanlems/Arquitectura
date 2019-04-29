@@ -8,8 +8,9 @@
 <head>
 <title>Estadisticas</title>
 <style type="text/css" media="screen">
-@import 'style.css';
+@import 'style2.css';
 </style>
+
 </head>
 
 <body>
@@ -24,8 +25,26 @@
 		<h2 class="title"></h2>
 	</div>
 	<!-- end #menu -->
-
-
+	<h:form >
+	
+	  <div class="gwd-div-1v7k">
+    <label class="gwd-label-1dyo gwd-label-vdvl" id="Estadisticas_11">Estadisticas</label>
+    <label class="gwd-label-1dyo gwd-label-ugb3 gwd-label-1str" id="Estadisticas_12">Nivel del jugador</label>
+    <label class="gwd-label-1dyo gwd-label-ugb3 gwd-label-9kjo gwd-label-5g00" id="Estadisticas_13">Partidas Jugadas</label>
+    <label class="gwd-label-1dyo gwd-label-ugb3 gwd-label-9kjo gwd-label-1nyp gwd-label-1cyt" id="Estadisticas_14">Victorias</label>
+    <label class="gwd-label-1dyo gwd-label-ugb3 gwd-label-9kjo gwd-label-1nyp gwd-label-4onh" id="Estadisticas_15">%Victorias</label>
+    <label class="gwd-label-1dyo gwd-label-ugb3 gwd-label-9kjo gwd-label-1nyp gwd-label-iff3" id="Estadisticas_16">Perdidas</label>
+    <h:outputLabel class="gwd-label-1dyo gwd-label-ugb3 gwd-label-1gh7 gwd-label-8b7u" id="Estadisticas_17" value = "#{controlador.estadisticas.niveljugador}"></h:outputLabel>
+    <h:outputLabel class="gwd-label-1dyo gwd-label-ugb3 gwd-label-1gh7 gwd-label-1myw gwd-label-orcy" id="Estadisticas_18" value = "#{controlador.estadisticas.totalpartidas}"></h:outputLabel>
+    <h:outputLabel class="gwd-label-1dyo gwd-label-ugb3 gwd-label-1gh7 gwd-label-1myw gwd-label-ds2a gwd-label-maus" id="Estadisticas_19" value = "#{controlador.estadisticas.partidasganadas}"></h:outputLabel>
+    <h:outputLabel class="gwd-label-whqo gwd-label-1dyo gwd-label-ugb3 gwd-label-1gh7 gwd-label-1myw gwd-label-ds2a gwd-label-199f" id="Estadisticas_20" value = "#{controlador.estadisticas.partidasperdidas}"></h:outputLabel>
+    <h:outputLabel class="gwd-label-whqo gwd-label-1dyo gwd-label-ugb3 gwd-label-1gh7 gwd-label-1myw gwd-label-ds2a gwd-label-1t2g" id="Estadisticas_21" value = "#{controlador.estadisticas.porcentajevictorias}"></h:outputLabel>
+    <h:commandButton class="gwd-button-82gq" id="button_4"></h:commandButton>
+    <h:commandButton class="gwd-button-82gq gwd-button-evjt gwd-button-75mn" id="button_5"></h:commandButton>
+    <h:commandButton class="gwd-button-82gq gwd-button-evjt gwd-button-1qlp" id="button_6"></h:commandButton>
+  </div>
+  
+</h:form>
 </body>
 
 </html>

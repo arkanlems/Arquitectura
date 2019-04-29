@@ -34,6 +34,7 @@ public class Controlador {
 	@EJB
 	public Estadisticas estadisticas;
 	
+	
 	@EJB
 	public Estadisticas nuevaEst;
 	
@@ -49,6 +50,7 @@ public class Controlador {
 		this.updateUsuario = new Usuario();
 		this.nuevoUsuario = new Usuario();
 		this.nuevaEst = new Estadisticas();
+		//this.estadisticas = new Estadisticas();
 		this.listaUsuarios = new ArrayList<Usuario>();
 	}
 
@@ -65,11 +67,11 @@ public class Controlador {
 		// Invoca el servicio remoto
 		usuario = fachadaLogica.findUsuario(userName, password);
 		updateUsuario = fachadaLogica.findUsuario(userName, password);
-		
+		estadisticas = fachadaLogica.findEstadisticas(usuario.getid());
 		if (usuario == null)
 			return "fracaso";
 
-		System.out.println("Usuario: " + usuario.getNombres()+updateUsuario.getid() + ", " + usuario.getApellidos());
+		System.out.println("Usuario: " + usuario.getNombres()+updateUsuario.getid() + ", " + usuario.getApellidos()+estadisticas.getNiveljugador());
 
 		return "exito";
 
