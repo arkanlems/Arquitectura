@@ -64,13 +64,7 @@ public class ServiceUsuario implements ServiceUsuarioLocal {
 				return "existe";
 		}finally {
 			em.close();
-			//Estadisticas n = new Estadisticas();
-			//System.out.println("voy a insertar la estadistica");
-			//n.setUsuarios_id(this.findUsuario(usuario.getusuario(), usuario.getcontrasenia()).get(0).getid());
-			//System.out.println("obtuve el id");
-			//n.setUsuarios_id(usuario.getid());
-			//ServiceEstadisticas se = new ServiceEstadisticas();
-			//se.insertarEstadistica(n);
+			
 			
 		}
 	}
@@ -82,6 +76,24 @@ public class ServiceUsuario implements ServiceUsuarioLocal {
 		    return em.createQuery("SELECT p FROM Usuario p", Usuario.class).getResultList();
 		}finally {
 			em.close();
+		}
+	}
+
+	public String actualizarUsuario(Usuario usuario) {
+		EntityManager em = emf.createEntityManager();
+		try {
+			System.out.println("entre a actualizar usuario numero: "+ usuario.getid());
+			Usuario user = em.find(Usuario.class, usuario.getid());
+			if (user == null) {
+				return "noactualizado";
+			}
+			else
+				em.merge(usuario);
+			
+				return "actualizado";
+		}finally {
+			em.close();
+					
 		}
 	}
 

@@ -24,11 +24,10 @@
 		<h2 class="title"></h2>
 	</div>
 	<!-- end #menu -->
-
-	<h:form value="#{controlador.usuario}" var="user">
-
-		<h:inputText type="text" id="usuario"
+ <h:form>
+	<h:inputText type="text" id="usuario"
 			value="#{controlador.usuario.usuario}"
+			
 			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-zmjf">
 		</h:inputText>
 		<label id="label_1"
@@ -70,23 +69,25 @@
 		<label id="label_6"
 			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-13kn gwd-label-130g">Idioma</label>
 		<h:inputText type="text" id="genero"
-			value="#{controlador.usuario.genero}"
+			value="#{controlador.usuario.contrasenia}"
 			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-1acw gwd-input-1jtx gwd-input-1mno">
 		</h:inputText>
 		<label id="label_8"
-			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-13kn gwd-label-id8x">Genero</label>
+			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-13kn gwd-label-id8x">Pass</label>
 		<!--  <img src="images/02th-egg-person.jpg" id="02th-egg-person" class="gwd-img-z7al"/> -->
 
-		<h:commandButton value="Editar" action="#{controlador.loginExito()}"
+		<h:commandButton value="Editar" 
+			action="#{controlador.actualizarUsuario()}"
 			class="gwd-button-jq9i gwd-button-kv7y"></h:commandButton>
-		<h:commandButton value="Jugar" action="#{controlador.loginExito()}"
+		<h:commandButton value="Jugar" 
+			action="#{controlador.loginExito()}"
 			class="gwd-button-jq9i gwd-button-17yy"></h:commandButton>
 		<h:commandButton value="VerEstadisticas "
-			action="#{controlador.loginExito()}"
+			action="#{controlador.verEstadisticas()}"
 			class="gwd-button-jq9i gwd-button-gs18"></h:commandButton>
+</h:form>
 
 
-	</h:form>
 
 </body>
 

@@ -2,9 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/EjemploEE01"/>
-	<classpathentry kind="lib" path="C:/Users/Lemus/Desktop/Arquitectura/Entrega2/ClientView/Ejemplo01Web/WebContent/WEB-INF/lib/jboss-client.jar"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/EjemploEE01"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mojarra"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

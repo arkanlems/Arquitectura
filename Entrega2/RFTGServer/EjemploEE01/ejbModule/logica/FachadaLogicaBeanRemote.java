@@ -12,6 +12,7 @@ public interface FachadaLogicaBeanRemote {
 	
 	public Usuario findUsuario(String userName, String password);
 	public String insertarUsuario(Usuario usuario);
+	public String actualizarUsuario(Usuario usuario);
 	public List<Usuario> findAllUsuarios();	
 	public Estadisticas findEstadisticas(int id);
 	public String insertarEstadisticas(Estadisticas estadisticas);

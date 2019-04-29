@@ -29,14 +29,6 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>ingreso.xhtml</display-name>
-		<from-view-id>/ingreso.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>exito</from-outcome>
-			<to-view-id>/loginExito.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
 		<display-name>loginError.xhtml</display-name>
 		<from-view-id>/loginError.xhtml</from-view-id>
 		<navigation-case>
@@ -106,6 +98,22 @@
 		<navigation-case>
 			<from-outcome>aceptar</from-outcome>		
 			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>ingreso.xhtml</display-name>
+		<from-view-id>/ingreso.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/loginExito.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>loginExito.xhtml</display-name>
+		<from-view-id>/loginExito.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>verEstadisticas</from-outcome>
+			<to-view-id>/verEstadisticas.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>

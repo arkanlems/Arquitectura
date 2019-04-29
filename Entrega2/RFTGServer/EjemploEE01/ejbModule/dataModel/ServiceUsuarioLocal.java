@@ -12,6 +12,8 @@ public interface ServiceUsuarioLocal {
 	
 	public String insertarUsuario(Usuario usuario);
 	
-	public List<Usuario> findAllUsuarios();	
+	public List<Usuario> findAllUsuarios();
+
+	public String actualizarUsuario(Usuario usuario);	
 		
 }

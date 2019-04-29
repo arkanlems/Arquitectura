@@ -3,6 +3,8 @@ package dataModel;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.persistence.*;
 
 
@@ -37,6 +39,10 @@ public class Usuario implements Serializable {
 
 	private String usuario;
 
+	
+
+
+	
 	public Usuario() {
 	}
 

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15412789348960" configfile="/Ejemplo01Web/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="468" y="180" id="pf15414815432840" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" outlinks="pf15416594930862 pf15416596391194 pf154174075515425" inlinks="pf154173495365315 pf154173567058016 pf154174075515426" path="/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="ingreso.xhtml" x="36" y="180" id="pf15416594930863" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf154171353760110 pf154171353760111" inlinks="pf15416594930862 pf154173473178914" path="/ingreso.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="adicionarUsuarios.xhtml" x="781" y="180" id="pf15416596391205" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" outlinks="pf154173567058017 pf154173567058018" inlinks="pf15416596391194 pf154173567058019" path="/adicionarUsuarios.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="loginError.xhtml" x="48" y="372" id="pf154171353760112" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf154173473178914" inlinks="pf154171353760110" path="/loginError.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="loginExito.xhtml" x="156" y="12" id="pf154171353760113" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf154173495365315" inlinks="pf154171353760111" path="/loginExito.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="insertarExito.xhtml" x="798" y="12" id="pf154173567058020" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf154173567058016" inlinks="pf154173567058017" path="/insertarExito.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="insertarError.xhtml" x="816" y="360" id="pf154173567058021" referenceLink="//@navigationRule.8/@fromViewId|" outlinks="pf154173567058019" inlinks="pf154173567058018" path="/insertarError.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="listarUsuarios.xhtml" x="348" y="456" id="pf154173862897624" referenceLink="//@navigationRule.11/@fromViewId|" outlinks="pf154174075515426" inlinks="pf154174075515427" path="/listarUsuarios.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="listadoUsuarios.xhtml" x="462" y="336" id="pf154174075515428" referenceLink="//@navigationRule.10/@fromViewId|" outlinks="pf154174075515427" inlinks="pf154174075515425" path="/listadoUsuarios.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="468" y="180" id="pf15414815432840" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" outlinks="pf15416594930862 pf15416596391194 pf154174075515425" inlinks="pf154173495365315 pf154173567058016 pf154174075515426" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="ingreso.xhtml" x="36" y="180" id="pf15416594930863" referenceLink="//@navigationRule.12/@fromViewId|" outlinks="pf154171353760110 pf154171353760111" inlinks="pf15416594930862 pf154173473178914" path="/ingreso.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="adicionarUsuarios.xhtml" x="781" y="180" id="pf15416596391205" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" outlinks="pf154173567058017 pf154173567058018" inlinks="pf15416596391194 pf154173567058019" path="/adicionarUsuarios.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="loginError.xhtml" x="48" y="372" id="pf154171353760112" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf154173473178914" inlinks="pf154171353760110" path="/loginError.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="loginExito.xhtml" x="450" y="48" id="pf154171353760113" referenceLink="//@navigationRule.12/@fromViewId|" outlinks="pf154173495365315 pf15565180542071" inlinks="pf154171353760111" path="/loginExito.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="insertarExito.xhtml" x="798" y="12" id="pf154173567058020" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf154173567058016" inlinks="pf154173567058017" path="/insertarExito.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="insertarError.xhtml" x="816" y="360" id="pf154173567058021" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf154173567058019" inlinks="pf154173567058018" path="/insertarError.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listarUsuarios.xhtml" x="348" y="456" id="pf154173862897624" referenceLink="//@navigationRule.10/@fromViewId|" outlinks="pf154174075515426" inlinks="pf154174075515427" path="/listarUsuarios.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="listadoUsuarios.xhtml" x="462" y="336" id="pf154174075515428" referenceLink="//@navigationRule.9/@fromViewId|" outlinks="pf154174075515427" inlinks="pf154174075515425" path="/listadoUsuarios.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="verEstadisticas.xhtml" x="120" y="48" id="pf15565177958560" referenceLink="//@navigationRule.12/@navigationCase.0/@toViewId|" inlinks="pf15565180542071" path="/verEstadisticas.xhtml"/>
   <links id="pf15416594930862" target="pf15416594930863" source="pf15414815432840" outcome="ingreso"/>
   <links id="pf15416596391194" target="pf15416596391205" source="pf15414815432840" outcome="adicionarUsuarios"/>
   <links id="pf154171353760110" target="pf154171353760112" source="pf15416594930863" outcome="fracaso">
@@ -30,4 +31,5 @@
   <links id="pf154174075515425" target="pf154174075515428" source="pf15414815432840" outcome="listadoUsuarios"/>
   <links id="pf154174075515427" target="pf154173862897624" source="pf154174075515428" outcome="exito"/>
   <links id="pf154174075515426" target="pf15414815432840" source="pf154173862897624" outcome="aceptar"/>
+  <links id="pf15565180542071" target="pf15565177958560" source="pf154171353760113" outcome="verEstadisticas"/>
 </pageflow:Pageflow>

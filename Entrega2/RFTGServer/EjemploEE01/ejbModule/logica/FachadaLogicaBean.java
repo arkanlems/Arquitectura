@@ -79,6 +79,14 @@ public class FachadaLogicaBean implements FachadaLogicaBeanRemote {
     	System.out.println("entre a insertarEstadisticas");
     	return x.insertarEstadistica(estadisticas);
 	}
+
+	@Override
+	public String actualizarUsuario(Usuario usuario) {
+		ServiceUsuarioLocal x = new ServiceUsuario();
+    	System.out.println("estoy en actulizarUsuariod de fachada");
+    	return x.actualizarUsuario(usuario);
+
+	}
 	
 	//------------------------------------------------------------------------------	
 

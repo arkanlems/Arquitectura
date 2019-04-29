@@ -21,11 +21,15 @@ public class Controlador {
 	@ManagedProperty(value = "#{loginUsuariosBean}")
 	public LoginUsuariosBean loginUsuario;
 	
+	
 	@EJB
 	public Usuario usuario;
 
 	@EJB
 	public Usuario nuevoUsuario;
+	
+	@EJB
+	public Usuario updateUsuario;
 	
 	@EJB
 	public Estadisticas estadisticas;
@@ -34,17 +38,23 @@ public class Controlador {
 	public Estadisticas nuevaEst;
 	
 	public List<Usuario> listaUsuarios;	
+	
+	public String userName;
+	
+	public String password;
 
 	public Controlador() {
 		// TODO Auto-generated constructor stub
+		this.usuario = new Usuario();
+		this.updateUsuario = new Usuario();
 		this.nuevoUsuario = new Usuario();
 		this.nuevaEst = new Estadisticas();
 		this.listaUsuarios = new ArrayList<Usuario>();
 	}
 
 	public String validarUsuario() {
-		String userName = loginUsuario.getUserName();
-		String password = loginUsuario.getPassword();
+		userName = loginUsuario.getUserName();
+		password = loginUsuario.getPassword();
 
 		System.out.println("Solicitud recibida: " + userName + " " + password);
 
@@ -54,11 +64,12 @@ public class Controlador {
 
 		// Invoca el servicio remoto
 		usuario = fachadaLogica.findUsuario(userName, password);
-
+		updateUsuario = fachadaLogica.findUsuario(userName, password);
+		
 		if (usuario == null)
 			return "fracaso";
 
-		System.out.println("Usuario: " + usuario.getNombres() + ", " + usuario.getApellidos());
+		System.out.println("Usuario: " + usuario.getNombres()+updateUsuario.getid() + ", " + usuario.getApellidos());
 
 		return "exito";
 
@@ -96,6 +107,30 @@ public class Controlador {
 		
 
 	}
+	public String actualizarUsuario() {
+		 
+		//System.out.println("entre a actualizarUsuario de id xdxd: "+usuario.getid()+updateUsuario.getid()+updateUsuario.getcontrasenia()+usuario.getNombres());
+		LocalizadorServicios localizadorServicios = new LocalizadorServicios();
+		FachadaLogicaBeanRemote fachadaLogica = localizadorServicios.getServicio1();
+		
+		//this.updateUsuario = fachadaLogica.findUsuario(loginUsuario.getUserName(), loginUsuario.getPassword());
+		
+		// Invoca el servicio remoto (retorna exito o existe)
+		updateUsuario = fachadaLogica.findUsuario(usuario.getusuario(), usuario.getcontrasenia());
+		
+		updateUsuario.setApellidos(usuario.getApellidos());
+		updateUsuario.setCelular(usuario.getCelular());
+		updateUsuario.setCorreo(usuario.getCorreo());
+		updateUsuario.setIdioma(usuario.getIdioma());
+		updateUsuario.setNacionalidad(usuario.getNacionalidad());
+		updateUsuario.setNombres(usuario.getNombres());
+		
+		
+		String x =fachadaLogica.actualizarUsuario(this.updateUsuario);
+		 System.out.println("resultado: "+x);
+			
+		return x;
+	}
 
 	public String insertarError() {
 		return "reintentar";
@@ -115,8 +150,24 @@ public class Controlador {
 		return "exito";
 	}
 	
+	public Usuario getUpdateUsuario() {
+		return updateUsuario;
+	}
+
+	public Estadisticas getEstadisticas() {
+		return estadisticas;
+	}
+
+	public Estadisticas getNuevaEst() {
+		return nuevaEst;
+	}
+
 	public String listarExito() {
 		return "aceptar";
+	}	
+	
+	public String verEstadisticas() {
+		return "verEstadisticas";
 	}	
 	
 	public LoginUsuariosBean getLoginUsuario() {
