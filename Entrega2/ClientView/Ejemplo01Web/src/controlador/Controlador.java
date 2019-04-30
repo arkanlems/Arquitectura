@@ -22,6 +22,8 @@ public class Controlador {
 	public LoginUsuariosBean loginUsuario;
 	
 	
+	
+	
 	@EJB
 	public Usuario usuario;
 
@@ -50,7 +52,7 @@ public class Controlador {
 		this.updateUsuario = new Usuario();
 		this.nuevoUsuario = new Usuario();
 		this.nuevaEst = new Estadisticas();
-		//this.estadisticas = new Estadisticas();
+		this.estadisticas = new Estadisticas();
 		this.listaUsuarios = new ArrayList<Usuario>();
 	}
 
@@ -71,7 +73,7 @@ public class Controlador {
 		if (usuario == null)
 			return "fracaso";
 
-		System.out.println("Usuario: " + usuario.getNombres()+updateUsuario.getid() + ", " + usuario.getApellidos()+estadisticas.getNiveljugador());
+		System.out.println("Usuario: " + usuario.getNombres()+updateUsuario.getid() + ", " + usuario.getApellidos());
 
 		return "exito";
 
@@ -119,6 +121,7 @@ public class Controlador {
 		
 		// Invoca el servicio remoto (retorna exito o existe)
 		updateUsuario = fachadaLogica.findUsuario(usuario.getusuario(), usuario.getcontrasenia());
+		estadisticas = fachadaLogica.findEstadisticas(usuario.getid());
 		
 		updateUsuario.setApellidos(usuario.getApellidos());
 		updateUsuario.setCelular(usuario.getCelular());
@@ -169,6 +172,7 @@ public class Controlador {
 	}	
 	
 	public String verEstadisticas() {
+		
 		return "verEstadisticas";
 	}	
 	
