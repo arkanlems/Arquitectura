@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFTG Store API", "RFTG Store API\RFTG Store API.csproj", "{20174750-F2A6-4399-AFA7-B19843CAADFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTFGStoreAPI", "RTFGStoreAPI\RTFGStoreAPI.csproj", "{0488D6D6-AD8D-4DD5-AC82-D626701E4DEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{20174750-F2A6-4399-AFA7-B19843CAADFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20174750-F2A6-4399-AFA7-B19843CAADFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20174750-F2A6-4399-AFA7-B19843CAADFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20174750-F2A6-4399-AFA7-B19843CAADFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0488D6D6-AD8D-4DD5-AC82-D626701E4DEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0488D6D6-AD8D-4DD5-AC82-D626701E4DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0488D6D6-AD8D-4DD5-AC82-D626701E4DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0488D6D6-AD8D-4DD5-AC82-D626701E4DEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
