@@ -1,7 +1,28 @@
-package controlador;
+package dataModel;
 
-public class TiendaCompraBean {
+import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+
+/**
+ * The persistent class for the usuarios database table.
+ * 
+ */
+
+public class articulo implements Serializable {
+	
+
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
 	private int uniqueid;
 	
 	private String nombre_articulo;
@@ -10,8 +31,9 @@ public class TiendaCompraBean {
 	
 	private String descripcion;
 	
-	public TiendaCompraBean() 
+	public articulo() 	
 	{
+		
 	}
 
 	public int getUniqueid() {
@@ -45,4 +67,9 @@ public class TiendaCompraBean {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
 }

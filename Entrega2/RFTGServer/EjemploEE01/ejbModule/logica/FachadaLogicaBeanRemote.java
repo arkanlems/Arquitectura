@@ -3,7 +3,11 @@ package logica;
 import java.util.List;
 
 import javax.ejb.Remote;
+import javax.xml.parsers.ParserConfigurationException;
 
+import org.xml.sax.SAXException;
+
+import dataModel.articulo;
 import dataModel.Estadisticas;
 import dataModel.Usuario;
 
@@ -16,5 +20,6 @@ public interface FachadaLogicaBeanRemote {
 	public List<Usuario> findAllUsuarios();	
 	public Estadisticas findEstadisticas(int id);
 	public String insertarEstadisticas(Estadisticas estadisticas);
+	public List<articulo> getTienda() throws ParserConfigurationException, SAXException;
 
 }

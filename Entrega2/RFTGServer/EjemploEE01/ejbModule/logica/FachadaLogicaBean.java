@@ -4,8 +4,14 @@ import java.util.List;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.xml.parsers.ParserConfigurationException;
 
+import org.xml.sax.SAXException;
+
+import dataModel.articulo;
 import dataModel.Estadisticas;
+import dataModel.ServiceArticulo;
+import dataModel.ServiceArticulosLocal;
 import dataModel.ServiceEstadisticas;
 import dataModel.ServiceEstadisticasLocal;
 import dataModel.ServiceUsuario;
@@ -86,6 +92,12 @@ public class FachadaLogicaBean implements FachadaLogicaBeanRemote {
     	System.out.println("estoy en actulizarUsuariod de fachada");
     	return x.actualizarUsuario(usuario);
 
+	}
+
+	@Override
+	public List<articulo> getTienda() throws ParserConfigurationException, SAXException {
+		ServiceArticulosLocal x = new  ServiceArticulo();
+		return x.getArticulos();
 	}
 	
 	//------------------------------------------------------------------------------	

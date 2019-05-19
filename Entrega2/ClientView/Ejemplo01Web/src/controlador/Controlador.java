@@ -8,10 +8,13 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import controlador.LocalizadorServicios;
 import controlador.LoginUsuariosBean;
-import dataModel.Articulo;
+import dataModel.articulo;
 import dataModel.Estadisticas;
 import dataModel.Usuario;
 import logica.FachadaLogicaBeanRemote;
@@ -38,8 +41,10 @@ public class Controlador {
 	public Estadisticas estadisticas;
 	
 	/*@EJB
-	public Articulo as;
-	*/
+	public articulo as;*/
+	
+	public List<articulo> articulos;
+
 	
 	@EJB
 	public Estadisticas nuevaEst;
@@ -57,7 +62,8 @@ public class Controlador {
 		this.nuevoUsuario = new Usuario();
 		this.nuevaEst = new Estadisticas();
 		this.estadisticas = new Estadisticas();
-		//this.as = new Articulo();
+		this.articulos = new ArrayList<>();
+	    //this.as = new articulo();
 		this.listaUsuarios = new ArrayList<Usuario>();
 	}
 
@@ -213,7 +219,16 @@ public class Controlador {
 		this.listaUsuarios = listaUsuarios;
 	}
 	
-	public String verTienda() {
+	public String verTienda() throws ParserConfigurationException, SAXException {
+		LocalizadorServicios localizadorServicios = new LocalizadorServicios();
+		FachadaLogicaBeanRemote fachadaLogica = localizadorServicios.getServicio1();
+		
+		this.articulos = fachadaLogica.getTienda();
+		
+		for (articulo articulo : articulos) {
+			System.out.println(articulo.getNombre_articulo());
+		}
+		
 		return "tienda";	
 	}
 	
@@ -221,11 +236,11 @@ public class Controlador {
 		return "back";
 	}
 
-	/*public Articulo getAs() {
+	/*public articulo getAs() {
 		return as;
 	}
 
-	public void setAs(Articulo as) {
+	public void setAs(articulo as) {
 		this.as = as;
 	}*/
 	
