@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="proyectoasModelStoreContainer" CdmEntityContainer="proyectoasEntities">
+    <EntitySetMapping Name="articulo">
+      <EntityTypeMapping TypeName="proyectoasModel.articulo">
+        <MappingFragment StoreEntitySet="articulo">
+          <ScalarProperty Name="uniqueid" ColumnName="uniqueid" />
+          <ScalarProperty Name="nombre_articulo" ColumnName="nombre_articulo" />
+          <ScalarProperty Name="und_disponibles" ColumnName="und_disponibles" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
