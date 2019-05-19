@@ -43,7 +43,7 @@
 			<h:outputLabel value="Usuario(UserName) : " />
 			<h:inputText value="#{controlador.nuevoUsuario.usuario}" />
 			<h:outputLabel value="Clave(Password) : " />
-			<h:inputText value="#{controlador.nuevoUsuario.contrasenia}" />
+			<h:inputSecret value="#{controlador.nuevoUsuario.contrasenia}" />
 		</h:panelGrid>
 		<h:commandButton value="Registrarse"
 			action="#{controlador.insertarUsuario()}" />

@@ -207,4 +207,12 @@ public class Controlador {
 	public void setListaUsuarios(List<Usuario> listaUsuarios) {
 		this.listaUsuarios = listaUsuarios;
 	}
+	
+	public String verTienda() {
+		return "tienda";	
+	}
+	
+	public String goBack() {
+		return "back";
+	}
 }

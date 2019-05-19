@@ -35,10 +35,10 @@
 			<h:message id="msgName" for="username" style="color:red" />
 
 			<h:outputLabel for="password">Palabra clave</h:outputLabel>
-			<h:inputText id="password" value="#{loginUsuariosBean.password}"
+			<h:inputSecret id="password" value="#{loginUsuariosBean.password}"
 				required="true"
 				requiredMessage="la contrasenia de usuario es requerida" display="icon">
-			</h:inputText>
+			</h:inputSecret>
 			<h:message id="msgPassword" for="password" style="color:red" />
 
 		</h:panelGrid>
@@ -46,6 +46,7 @@
 		<h:commandButton value="Login"
 			action="#{controlador.validarUsuario()}"></h:commandButton>
 	</h:form>
+	<h:commandButton value="back" action="#{controlador.goBack()}"></h:commandButton>
 
 </body>
 </html>

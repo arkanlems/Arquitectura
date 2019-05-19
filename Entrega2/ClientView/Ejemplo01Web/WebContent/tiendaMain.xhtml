@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+<title>Tienda</title>
+<style type="text/css" media="screen">
+@import 'style.css';
+</style>
+</head>
+<body>
+	<div id="header">
+		<div id="logo">
+			<h1>Race For The Galaxy</h1>
+			<br></br>
+			<h2 class="title">Online</h2>
+		</div>
+	</div>
+	<h2>TIENDA</h2>
+	<hr />
+
+	<h:form>
+		<h:panelGrid id="panel" columns="5" border="1" cellpadding="10"
+			cellspacing="1">
+
+			<f:facet name="header">
+				<h:outputText value="Paquetes de expancion" />
+			</f:facet>
+            
+            <h:graphicImage value="images/exp_01.jpg" id="exp_1" />
+			<h:graphicImage value="images/exp_02.jpg" id="exp_2" />
+			<h:graphicImage value="images/exp_03.jpg" id="exp_3" />
+			<h:graphicImage value="images/exp_04.png" id="exp_4" />
+			<h:graphicImage value="images/exp_05.jpg" id="exp_5" />
+			
+			
+			<f:facet name="footer">
+				<h:panelGroup style="display:block; text-align:center">
+				 	<h:commandButton value="back" action="#{controlador.goBack()}"></h:commandButton> 
+				</h:panelGroup>
+			</f:facet>
+		</h:panelGrid>
+	</h:form>
+	
+</body>
+</html>
