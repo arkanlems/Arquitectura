@@ -1,11 +1,11 @@
 package dataModel;
 
 import java.io.Serializable;
-import java.sql.Date;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 
 /**

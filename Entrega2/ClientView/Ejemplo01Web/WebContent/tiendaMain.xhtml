@@ -23,27 +23,68 @@
 	<hr />
 
 	<h:form>
+	<center>
 		<h:panelGrid id="panel" columns="5" border="1" cellpadding="10"
 			cellspacing="1">
-
 			<f:facet name="header">
 				<h:outputText value="Paquetes de expancion" />
 			</f:facet>
-            
-            <h:graphicImage value="images/exp_01.jpg" id="exp_1" />
+
+			<!-- Consumir los nombres de ser posible -->
+			
+			The Gathering Storm
+			<h:outputText value="Rebel vs Imperium" />
+			<h:outputText value="The Brink of War" />
+			<h:outputText value="Alien Artifacts" />
+			<h:outputText value="Xeno Invasion" />
+
+			<h:graphicImage value="images/exp_01.jpg" id="exp_1" />
 			<h:graphicImage value="images/exp_02.jpg" id="exp_2" />
 			<h:graphicImage value="images/exp_03.jpg" id="exp_3" />
 			<h:graphicImage value="images/exp_04.png" id="exp_4" />
 			<h:graphicImage value="images/exp_05.jpg" id="exp_5" />
-			
-			
+
+			<h:panelGrid id="sub_panel1" columns="2" border="1" cellpadding="10"
+				cellspacing="1">
+				<h:outputText value="Cantidad:" />
+				<h:inputText value="#{controlador.nuevoUsuario.nombres}"></h:inputText>
+			</h:panelGrid>
+
+			<h:panelGrid id="sub_panel2" columns="2" border="1" cellpadding="10"
+				cellspacing="1">
+				<h:outputText value="Cantidad:" />
+				<h:inputText value="#{controlador.nuevoUsuario.nombres}"></h:inputText>
+			</h:panelGrid>
+
+			<h:panelGrid id="sub_panel3" columns="2" border="1" cellpadding="10"
+				cellspacing="1">
+				<h:outputText value="Cantidad:" />
+				<h:inputText value="#{controlador.nuevoUsuario.nombres}"></h:inputText>
+			</h:panelGrid>
+
+			<h:panelGrid id="sub_panel4" columns="2" border="1" cellpadding="10"
+				cellspacing="1">
+				<h:outputText value="Cantidad:" />
+				<h:inputText value="#{controlador.nuevoUsuario.nombres}"></h:inputText>
+			</h:panelGrid>
+
+			<h:panelGrid id="sub_panel5" columns="2" border="1" cellpadding="10"
+				cellspacing="1">
+				<h:outputText value="Cantidad:" />
+				<h:inputText value="#{controlador.nuevoUsuario.nombres}"></h:inputText>
+			</h:panelGrid>
+
+
 			<f:facet name="footer">
 				<h:panelGroup style="display:block; text-align:center">
-				 	<h:commandButton value="back" action="#{controlador.goBack()}"></h:commandButton> 
+					<h:commandButton value="Comprar" action="#{controlador.goBack()}"></h:commandButton>
+					
+					<h:commandButton value="back" action="#{controlador.goBack()}"></h:commandButton>					
 				</h:panelGroup>
 			</f:facet>
+
 		</h:panelGrid>
+	</center>
 	</h:form>
-	
 </body>
 </html>

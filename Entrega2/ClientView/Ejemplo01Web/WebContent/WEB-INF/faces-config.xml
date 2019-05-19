@@ -124,20 +124,20 @@
 			<to-view-id>/tiendaMain.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-		<navigation-rule>
+	<navigation-rule>
 		<display-name>tiendaMain.xhtml</display-name>
-		<from-view-id>/loginExito.xhtml</from-view-id>
+		<from-view-id>/tiendaMain.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>back</from-outcome>
 			<to-view-id>/loginExito.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<display-name>ingreso.xhtml</display-name>
-		<from-view-id>/ingreso.xhtml</from-view-id>
+		<display-name>tiendaMain.xhtml</display-name>
+		<from-view-id>/tiendaMain.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>back</from-outcome>
-			<to-view-id>/index.xhtml</to-view-id>
+			<to-view-id>/loginExito.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>

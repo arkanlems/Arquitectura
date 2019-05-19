@@ -11,6 +11,7 @@ import javax.faces.bean.RequestScoped;
 
 import controlador.LocalizadorServicios;
 import controlador.LoginUsuariosBean;
+import dataModel.Articulo;
 import dataModel.Estadisticas;
 import dataModel.Usuario;
 import logica.FachadaLogicaBeanRemote;
@@ -36,6 +37,9 @@ public class Controlador {
 	@EJB
 	public Estadisticas estadisticas;
 	
+	/*@EJB
+	public Articulo as;
+	*/
 	
 	@EJB
 	public Estadisticas nuevaEst;
@@ -53,6 +57,7 @@ public class Controlador {
 		this.nuevoUsuario = new Usuario();
 		this.nuevaEst = new Estadisticas();
 		this.estadisticas = new Estadisticas();
+		//this.as = new Articulo();
 		this.listaUsuarios = new ArrayList<Usuario>();
 	}
 
@@ -215,4 +220,14 @@ public class Controlador {
 	public String goBack() {
 		return "back";
 	}
+
+	/*public Articulo getAs() {
+		return as;
+	}
+
+	public void setAs(Articulo as) {
+		this.as = as;
+	}*/
+	
+	
 }
