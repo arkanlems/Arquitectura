@@ -27,32 +27,29 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-
 public class ServiceArticulo implements ServiceArticulosLocal {
 	private EntityManagerFactory emf;
-	
+
 	public ServiceArticulo() {
 		emf = Persistence.createEntityManagerFactory("EjemploEE01");
 	}
-	
-	public List<articulo> getArticulos() throws ParserConfigurationException,
-	SAXException{
+
+	public List<articulo> getArticulos() throws ParserConfigurationException, SAXException {
 		try {
 
-			URL url = new URL( "http://localhost:58633/api/Articulos");
+			URL url = new URL("http://localhost:58633/api/Articulos");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/xml");
-			
+
 			if (conn.getResponseCode() != 200) {
-				throw new RuntimeException("Failed : HTTP error code : "
-				    + conn.getResponseCode());
-		   }
-		
+				throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
+			}
+
 			BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
 			String output;
-			
-			List <articulo> ar = new ArrayList<> ();
+
+			List<articulo> ar = new ArrayList<>();
 			System.out.println("Output from server ..... \n");
 			while ((output = br.readLine()) != null) {
 				System.out.println("12132312");
@@ -64,83 +61,83 @@ public class ServiceArticulo implements ServiceArticulosLocal {
 
 				Document doc = db.parse(is);
 				NodeList nodes = ((org.w3c.dom.Document) doc).getElementsByTagName("articulo");
-				
+
 				for (int i = 0; i < nodes.getLength(); i++) {
-				    articulo a = new articulo();
-				    Element element = (Element) nodes.item(i);
-				    //------------------
-				    NodeList description =  element.getElementsByTagName("descripcion");
-				    Element element2 = (Element) description.item(0);
+					articulo a = new articulo();
+					Element element = (Element) nodes.item(i);
 
-				    a.setDescripcion(getCharacterDataFromElement(element2));
-				    
-				    //------------------
-				    NodeList name = element.getElementsByTagName("nombre_articulo");
-				    element2 = (Element) name.item(0);
+					// ------------------
+					NodeList description = element.getElementsByTagName("descripcion");
+					Element element2 = (Element) description.item(0);
 
-				    a.setNombre_articulo(getCharacterDataFromElement(element2));
-				    
-				    //------------------
-				    NodeList stock = element.getElementsByTagName("und_disponibles");
-				    element2 = (Element) stock.item(0);
+					a.setDescripcion(getCharacterDataFromElement(element2));
 
-				    a.setUnd_disponibles(Integer.valueOf(getCharacterDataFromElement(element2)));
+					// ------------------
+					NodeList name = element.getElementsByTagName("nombre_articulo");
+					element2 = (Element) name.item(0);
 
-				    //----------------
-				    NodeList id = element.getElementsByTagName("uniqueid");
-				    element2 = (Element) id.item(0);
+					a.setNombre_articulo(getCharacterDataFromElement(element2));
 
-				    a.setUnd_disponibles(Integer.valueOf(getCharacterDataFromElement(element2)));
+					// ------------------
+					NodeList stock = element.getElementsByTagName("und_disponibles");
+					element2 = (Element) stock.item(0);
 
-				    
-				    ar.add(a);
+					a.setUnd_disponibles(Integer.valueOf(getCharacterDataFromElement(element2)));
+
+					// ----------------
+					NodeList id = element.getElementsByTagName("uniqueid");
+					element2 = (Element) id.item(0);
+
+					a.setUniqueid(Integer.valueOf(getCharacterDataFromElement(element2)));
+
+					ar.add(a);
 				}
-										
-				}
+
+			}
 
 			for (articulo articulo : ar) {
-				System.out.println(articulo.getNombre_articulo());
+				System.out.println(articulo.getUnd_disponibles());
 			}
 			conn.disconnect();
 			return ar;
-		}catch (MalformedURLException e) {
+		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 		return null;
 
 	}
-	
+
 	public static String getCharacterDataFromElement(Element e) {
 		Node child = ((Node) e).getFirstChild();
 		if (child instanceof CharacterData) {
-		CharacterData cd = (CharacterData) child;
-		return cd.getData();
+			CharacterData cd = (CharacterData) child;
+			return cd.getData();
 		}
 		return "";
-		}
+	}
 
 	public String updateArticulos(List<articulo> ar) {
 		EntityManager em = emf.createEntityManager();
 		try {
-			
 			for (articulo articulo : ar) {
-				if (articulo.getUnd_disponibles()<0) {
-					return "deficit";
+
+				URL url;
+				try {
+					url = new URL("http://localhost:58633/api/Articulos");
+					HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+					conn.setRequestMethod("POST");
+					conn.setRequestProperty("Accept", "application/xml");
+
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
+
 			}
-			for (articulo articulo : ar) {
-				
-				Query query = em.createQuery("UPDATE a"
-						+ " SET " + articulo.getUnd_disponibles() + " "
-						+ " WHERE a.uniqueid = " + articulo.getUniqueid());
-				int updateCount = query.executeUpdate();
-				System.out.println(updateCount);
-			}
-			
+
 			System.out.println("getResult executed");
-			
+
 			return "compra";
 
 		} finally {

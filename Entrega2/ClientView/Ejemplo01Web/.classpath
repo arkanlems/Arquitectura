@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/EjemploEE01"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mojarra"/>
+	<classpathentry kind="lib" path="D:/wildfly-14.0.1.Final/modules/system/layers/base/javax/ejb/api/main/jboss-ejb-api_3.2_spec-1.0.1.Final.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -12,11 +12,9 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import controlador.LocalizadorServicios;
-import controlador.LoginUsuariosBean;
-import dataModel.articulo;
 import dataModel.Estadisticas;
 import dataModel.Usuario;
+import dataModel.articulo;
 import logica.FachadaLogicaBeanRemote;
 
 @ManagedBean(eager = true)
@@ -25,14 +23,9 @@ public class Controlador {
 	@ManagedProperty(value = "#{loginUsuariosBean}")
 	public LoginUsuariosBean loginUsuario;
 	
-<<<<<<< HEAD
 	@ManagedProperty(value = "#{tiendaMainBean}")
 	public TiendaMainBean stock;
 		
-=======
-	
-	
->>>>>>> parent of 42f56bb... Consumo del api en tienda
 	
 	@EJB
 	public Usuario usuario;
@@ -51,11 +44,12 @@ public class Controlador {
 	
 	public List<articulo> articulos;
 
-	
+
 	@EJB
 	public Estadisticas nuevaEst;
 	
 	public List<Usuario> listaUsuarios;	
+	
 	
 	public String userName;
 	
@@ -225,7 +219,6 @@ public class Controlador {
 		this.listaUsuarios = listaUsuarios;
 	}
 	
-<<<<<<< HEAD
 	public List<articulo> getArticulos() {
 		return articulos;
 	}
@@ -242,16 +235,16 @@ public class Controlador {
 		this.stock = stock;
 	}
 
-=======
->>>>>>> parent of 42f56bb... Consumo del api en tienda
 	public String verTienda() throws ParserConfigurationException, SAXException {
 		LocalizadorServicios localizadorServicios = new LocalizadorServicios();
 		FachadaLogicaBeanRemote fachadaLogica = localizadorServicios.getServicio1();
 		
 		this.articulos = fachadaLogica.getTienda();
+		//stock.setArticulos(fachadaLogica.getTienda());
 		
 		for (articulo articulo : articulos) {
-			System.out.println(articulo.getNombre_articulo());
+			System.out.println(articulo.getUniqueid()+" "+articulo.getNombre_articulo()+" "+
+					" "+articulo.getUnd_disponibles()+" "+articulo.getDescripcion());
 		}
 		
 		return "tienda";	
@@ -260,14 +253,6 @@ public class Controlador {
 	public String goBack() {
 		return "back";
 	}
-
-	/*public articulo getAs() {
-		return as;
-	}
-
-	public void setAs(articulo as) {
-		this.as = as;
-	}*/
 	
 	public String comprarPaquete() throws ParserConfigurationException, SAXException {
 		LocalizadorServicios localizadorServicios = new LocalizadorServicios();
