@@ -3,17 +3,9 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:h="http://java.sun.com/jsf/html">
 
 <head>
-<style>
-table, th, td {
-	border: 1px solid white;
-	cellpadding: 10px;
-	padding: 3px;
-}
-</style>
 <title>Tienda</title>
 <style type="text/css" media="screen">
 @import 'style.css';
@@ -31,93 +23,74 @@ table, th, td {
 	<hr />
 
 	<h:form>
-		<center>
-			<table>
-				<ui:repeat var="var" value="#{controlador.articulos}">
-					<h:panelGroup>
-						<td><h3>
-								<h:outputText value="#{var.nombre_articulo}" />
-							</h3></td>
-					</h:panelGroup>
-				</ui:repeat>
-			</table>
-			<h:panelGrid id="panel" columns="5" border="1" cellpadding="10"
+	<center>
+		<h:panelGrid id="panel" columns="5" border="1" cellpadding="10"
+			cellspacing="1">
+			<f:facet name="header">
+				<h:outputText value="Paquetes de expancion" />
+			</f:facet>
+
+			<!-- Consumir los nombres de ser posible -->
+			
+			The Gathering Storm
+			<h:outputText value="Rebel vs Imperium" />
+			<h:outputText value="The Brink of War" />
+			<h:outputText value="Alien Artifacts" />
+			<h:outputText value="Xeno Invasion" />
+
+			<h:graphicImage value="images/exp_01.jpg" id="exp_1" />
+			<h:graphicImage value="images/exp_02.jpg" id="exp_2" />
+			<h:graphicImage value="images/exp_03.jpg" id="exp_3" />
+			<h:graphicImage value="images/exp_04.png" id="exp_4" />
+			<h:graphicImage value="images/exp_05.jpg" id="exp_5" />
+
+			<h:panelGrid id="sub_panel1" columns="2" border="1" cellpadding="10"
 				cellspacing="1">
-				<f:facet name="header">
-					<h:outputText value="Paquetes de expancion" />
+				<h:outputText value="Cantidad:" />
+				<h:inputText value="#{controlador.nuevoUsuario.nombres}"></h:inputText>
+			</h:panelGrid>
 
-				</f:facet>
-				<h:graphicImage value="images/exp_01.jpg" id="exp_1" height="80%"
-					width="80%" />
-				<h:graphicImage value="images/exp_02.jpg" id="exp_2" height="80%"
-					width="80%" />
-				<h:graphicImage value="images/exp_03.jpg" id="exp_3" height="80%"
-					width="80%" />
-				<h:graphicImage value="images/exp_04.png" id="exp_4" height="80%"
-					width="80%" />
-				<h:graphicImage value="images/exp_05.jpg" id="exp_5" height="80%"
-					width="80%" />
-				<h:panelGrid id="sub_panel1" columns="2" border="1" cellpadding="10"
-					cellspacing="1">
-					<h:outputText value="Descripcion:" />
-					<h:outputText value="#{controlador.articulos[0].descripcion}" />
-					<h:outputText value="Disponibles:" />
-					<h:outputText value="#{controlador.articulos[0].und_disponibles}" />
-					<h:outputText value="Cantidad:" />
-					<h:inputText value="#{tiendaMainBean.cant_1}" size="5"></h:inputText>
-				</h:panelGrid>
+			<h:panelGrid id="sub_panel2" columns="2" border="1" cellpadding="10"
+				cellspacing="1">
+				<h:outputText value="Cantidad:" />
+				<h:inputText value="#{controlador.nuevoUsuario.nombres}"></h:inputText>
+			</h:panelGrid>
 
-				<h:panelGrid id="sub_panel2" columns="2" border="1" cellpadding="10"
-					cellspacing="1">
-					<h:outputText value="Descripcion:" />
-					<h:outputText value="#{controlador.articulos[1].descripcion}" />
-					<h:outputText value="Disponibles:" />
-					<h:outputText value="#{controlador.articulos[1].und_disponibles}" />
-					<h:outputText value="Cantidad:" />
-					<h:inputText value="#{tiendaMainBean.cant_2}" size="5"></h:inputText>
-				</h:panelGrid>
+			<h:panelGrid id="sub_panel3" columns="2" border="1" cellpadding="10"
+				cellspacing="1">
+				<h:outputText value="Cantidad:" />
+				<h:inputText value="#{controlador.nuevoUsuario.nombres}"></h:inputText>
+			</h:panelGrid>
 
-				<h:panelGrid id="sub_panel3" columns="2" border="1" cellpadding="10"
-					cellspacing="1">
-					<h:outputText value="Descripcion:" />
-					<h:outputText value="#{controlador.articulos[2].descripcion}" />
-					<h:outputText value="Disponibles:" />
-					<h:outputText value="#{controlador.articulos[2].und_disponibles}" />
-					<h:outputText value="Cantidad:" />
-					<h:inputText value="#{tiendaMainBean.cant_3}" size="5"></h:inputText>
-				</h:panelGrid>
+			<h:panelGrid id="sub_panel4" columns="2" border="1" cellpadding="10"
+				cellspacing="1">
+				<h:outputText value="Cantidad:" />
+				<h:inputText value="#{controlador.nuevoUsuario.nombres}"></h:inputText>
+			</h:panelGrid>
 
-				<h:panelGrid id="sub_panel4" columns="2" border="1" cellpadding="10"
-					cellspacing="1">
-					<h:outputText value="Descripcion:" />
-					<h:outputText value="#{controlador.articulos[3].descripcion}" />
-					<h:outputText value="Disponibles:" />
-					<h:outputText value="#{controlador.articulos[3].und_disponibles}" />
-					<h:outputText value="Cantidad:" />
-					<h:inputText value="#{tiendaMainBean.cant_4}" size="5"></h:inputText>
-				</h:panelGrid>
+			<h:panelGrid id="sub_panel5" columns="2" border="1" cellpadding="10"
+				cellspacing="1">
+				<h:outputText value="Cantidad:" />
+				<h:inputText value="#{controlador.nuevoUsuario.nombres}"></h:inputText>
+			</h:panelGrid>
 
-				<h:panelGrid id="sub_panel5" columns="2" border="1" cellpadding="10"
-					cellspacing="1">
-					<h:outputText value="Descripcion:" />
-					<h:outputText value="#{controlador.articulos[4].descripcion}" />
-					<h:outputText value="Disponibles:" />
-					<h:outputText value="#{controlador.articulos[4].und_disponibles}" />
-					<h:outputText value="Cantidad:" />
-					<h:inputText value="#{tiendaMainBean.cant_5}" size="5"></h:inputText>
-				</h:panelGrid>
-
-
+<<<<<<< HEAD
 				<f:facet name="footer">
 					<h:panelGroup style="display:block; text-align:center">
 						<h:commandButton value="Comprar" action="#{controlador.comprarPaquete()}"></h:commandButton>
+=======
+>>>>>>> parent of 42f56bb... Consumo del api en tienda
 
-						<h:commandButton value="back" action="#{controlador.goBack()}"></h:commandButton>
-					</h:panelGroup>
-				</f:facet>
+			<f:facet name="footer">
+				<h:panelGroup style="display:block; text-align:center">
+					<h:commandButton value="Comprar" action="#{controlador.goBack()}"></h:commandButton>
+					
+					<h:commandButton value="back" action="#{controlador.goBack()}"></h:commandButton>					
+				</h:panelGroup>
+			</f:facet>
 
-			</h:panelGrid>
-		</center>
+		</h:panelGrid>
+	</center>
 	</h:form>
 </body>
 </html>
