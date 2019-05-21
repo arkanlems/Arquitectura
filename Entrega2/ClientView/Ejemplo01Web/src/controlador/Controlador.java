@@ -25,6 +25,7 @@ public class Controlador {
 	@ManagedProperty(value = "#{loginUsuariosBean}")
 	public LoginUsuariosBean loginUsuario;
 	
+	@ManagedProperty(value = "#{tiendaMainBean}")
 	public TiendaMainBean stock;
 		
 	
@@ -226,8 +227,16 @@ public class Controlador {
 
 	public void setArticulos(List<articulo> articulos) {
 		this.articulos = articulos;
-	}
+	}	
 	
+	public TiendaMainBean getStock() {
+		return stock;
+	}
+
+	public void setStock(TiendaMainBean stock) {
+		this.stock = stock;
+	}
+
 	public String verTienda() throws ParserConfigurationException, SAXException {
 		LocalizadorServicios localizadorServicios = new LocalizadorServicios();
 		FachadaLogicaBeanRemote fachadaLogica = localizadorServicios.getServicio1();
@@ -247,5 +256,20 @@ public class Controlador {
 		return "back";
 	}
 	
-	
+	public String comprarPaquete() throws ParserConfigurationException, SAXException {
+		LocalizadorServicios localizadorServicios = new LocalizadorServicios();
+		FachadaLogicaBeanRemote fachadaLogica = localizadorServicios.getServicio1();
+		
+		this.articulos = fachadaLogica.getTienda();
+		
+		articulos.get(0).setUnd_disponibles(articulos.get(0).getUnd_disponibles()-stock.getCant_1());
+		articulos.get(1).setUnd_disponibles(articulos.get(1).getUnd_disponibles()-stock.getCant_2());
+		articulos.get(2).setUnd_disponibles(articulos.get(2).getUnd_disponibles()-stock.getCant_3());
+		articulos.get(3).setUnd_disponibles(articulos.get(3).getUnd_disponibles()-stock.getCant_4());
+		articulos.get(4).setUnd_disponibles(articulos.get(4).getUnd_disponibles()-stock.getCant_5());
+		
+		String x = fachadaLogica.actualizarInventario(articulos);
+		System.out.println(x);
+		return "back";			
+	}
 }

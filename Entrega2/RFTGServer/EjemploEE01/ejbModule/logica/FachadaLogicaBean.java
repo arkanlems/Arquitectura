@@ -100,6 +100,13 @@ public class FachadaLogicaBean implements FachadaLogicaBeanRemote {
 		return x.getArticulos();
 	}
 	
+	@Override
+	public String actualizarInventario(List<articulo> stock)
+	{
+		ServiceArticulosLocal x = new  ServiceArticulo();
+		return x.updateArticulos(stock);
+	}
+	
 	//------------------------------------------------------------------------------	
 
 }

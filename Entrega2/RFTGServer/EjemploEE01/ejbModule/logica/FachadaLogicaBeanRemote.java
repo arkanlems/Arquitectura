@@ -21,5 +21,6 @@ public interface FachadaLogicaBeanRemote {
 	public Estadisticas findEstadisticas(int id);
 	public String insertarEstadisticas(Estadisticas estadisticas);
 	public List<articulo> getTienda() throws ParserConfigurationException, SAXException;
-
+	public String actualizarInventario(List<articulo> stock);
+	
 }

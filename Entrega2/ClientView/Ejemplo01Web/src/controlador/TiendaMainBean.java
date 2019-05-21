@@ -1,5 +1,6 @@
 package controlador;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -13,9 +14,8 @@ public class TiendaMainBean {
 	public int cant_3;
 	public int cant_4;
 	public int cant_5;
-
+	
 	public TiendaMainBean() {
-		
 	}
 
 	public int getCant_1() {

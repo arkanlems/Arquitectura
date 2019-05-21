@@ -10,7 +10,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,9 +29,10 @@ import org.xml.sax.SAXException;
 
 
 public class ServiceArticulo implements ServiceArticulosLocal {
-
+	private EntityManagerFactory emf;
+	
 	public ServiceArticulo() {
-		
+		emf = Persistence.createEntityManagerFactory("EjemploEE01");
 	}
 	
 	public List<articulo> getArticulos() throws ParserConfigurationException,
@@ -118,8 +123,30 @@ public class ServiceArticulo implements ServiceArticulosLocal {
 		}
 
 	public String updateArticulos(List<articulo> ar) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = emf.createEntityManager();
+		try {
+			
+			for (articulo articulo : ar) {
+				if (articulo.getUnd_disponibles()<0) {
+					return "deficit";
+				}
+			}
+			for (articulo articulo : ar) {
+				
+				Query query = em.createQuery("UPDATE a"
+						+ " SET " + articulo.getUnd_disponibles() + " "
+						+ " WHERE a.uniqueid = " + articulo.getUniqueid());
+				int updateCount = query.executeUpdate();
+				System.out.println(updateCount);
+			}
+			
+			System.out.println("getResult executed");
+			
+			return "compra";
+
+		} finally {
+			em.close();
+		}
 	}
 
 }

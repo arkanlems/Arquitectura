@@ -12,7 +12,6 @@ import javax.persistence.Table;
  * The persistent class for the usuarios database table.
  * 
  */
-
 public class articulo implements Serializable {
 	
 
