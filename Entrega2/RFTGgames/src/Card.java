@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Card {
 	
@@ -8,9 +9,9 @@ public class Card {
 	private boolean esMilitar;
 	private boolean esWindfall;
 	private boolean enInvestigacion;
-	private boolean Bienes;
+	private Card Bienes = null;
 	
-	private ArrayList<String> poderes;
+	private HashMap<Integer, String> poderes;
 
 	
 	
@@ -65,26 +66,28 @@ public class Card {
 		this.enInvestigacion = enInvestigacion;
 	}
 
-	public boolean isBienes() {
+	public Card getBienes() {
 		return Bienes;
 	}
 
-	public void setBienes(boolean bienes) {
+	public void setBienes(Card bienes) {
 		Bienes = bienes;
 	}
 
-	public ArrayList<String> getPoderes() {
+	public HashMap<Integer, String> getPoderes() {
 		return poderes;
 	}
 
-	public void setPoderes(ArrayList<String> poderes) {
+	public void setPoderes(HashMap<Integer, String> poderes) {
 		this.poderes = poderes;
-	}  
+	}
+	
 
 	@Override
 	public String toString() {
 		return "Card [nombre=" + nombre + ", costo=" + costo + ", PV=" + PV + ", esMilitar=" + esMilitar
-				+ ", esWindfall=" + esWindfall + ", enInvestigacion=" + enInvestigacion + ", Bienes=" + Bienes + "]";
+				+ ", esWindfall=" + esWindfall + ", enInvestigacion=" + enInvestigacion + ", Bienes=" + Bienes
+				+ ", poderes=" + poderes + "]";
 	}
 
 }
