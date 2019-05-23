@@ -161,5 +161,37 @@ public class Player {
 	public void agregarPuntaje(int pv) {
 		puntaje += pv;
 	}
+
+	public Card sacrificarBien() {
+		System.out.println("Seleccione el bien que desea sacrificar");
+		for (int i = 0; i < tablero.size(); i++) {
+			if (tablero.get(i).getBienes() != null) {
+				System.out.println("Carta "+ (i+1)+ ": "+tablero.get(i).getNombre());	
+			}			
+		}
+		Scanner sc = new Scanner(System.in);
+		int temp = sc.nextInt()-1;
+		Card carta = tablero.get(temp).getBienes();
+		tablero.get(temp).setBienes(null);		
+		return carta;		
+	}
+	
+	public boolean comercioRecursos() {
+		for (Card card : tablero) {
+			if ( (card.getBienes() != null) && card.getPoderes().containsKey(4)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean consumirRecursos() {
+		for (Card card : tablero) {
+			if ( (card.getBienes() != null) && card.getPoderes().containsKey(5)) {
+				return true;
+			}
+		}
+		return false;
+	}
 	
 }
