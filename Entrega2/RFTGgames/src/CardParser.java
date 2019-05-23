@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Stack;
 import java.util.StringTokenizer;
@@ -31,7 +32,19 @@ public class CardParser {
 			carta.setEsMilitar(booleanizer(st.nextToken()));
 			carta.setEsWindfall(booleanizer(st.nextToken()));
 			carta.setEnInvestigacion(booleanizer(st.nextToken()));
+			String pod = st.nextToken();
+			StringTokenizer ste = new StringTokenizer(pod, ",;");
+			HashMap<Integer,String> poderes= new HashMap<Integer,String>();
+			int fase;
+			String poder;
+			while(ste.hasMoreTokens()) {
+				fase=Integer.parseInt(ste.nextToken());
+				poder=ste.nextToken();
+				poderes.put(fase,poder);
+			}
+			carta.setPoderes(poderes);
 			//System.out.println(carta);
+			
 			mazo.add(carta);
 		}
 
