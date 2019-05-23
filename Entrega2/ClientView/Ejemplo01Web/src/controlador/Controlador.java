@@ -14,6 +14,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 import dataModel.Estadisticas;
+import dataModel.Pagos;
 import dataModel.Usuario;
 import dataModel.articulo;
 import logica.FachadaLogicaBeanRemote;
@@ -255,7 +256,27 @@ public class Controlador {
 		this.recuprerarSesion();
 		return "back";
 	}
-	
+	public boolean crearPago(articulo compra){
+		LocalizadorServicios localizadorServicios = new LocalizadorServicios();
+		FachadaLogicaBeanRemote fachadaLogica = localizadorServicios.getServicio1();
+		
+		Pagos pago = new Pagos();
+		
+		pago.setIdpago((int) pago.getSerialversionuid());
+		pago.setArticulocomprado(compra.getNombre_articulo());
+		pago.setCantidad(compra.getUnd_disponibles());
+		pago.setEntidadbancaria("bancolombia");
+		pago.setUsuarios_id(fachadaLogica.findUsuario(userName, password).getid());
+		pago.setValorcompra(compra.getUnd_disponibles()*1000);
+		
+		String res = fachadaLogica.ingresarPago(pago);
+		
+		if(res=="insertado") {
+			return true;
+		}
+		return false;
+		
+	}
 	public String comprarPaquete() throws ParserConfigurationException, SAXException {
 		LocalizadorServicios localizadorServicios = new LocalizadorServicios();
 		FachadaLogicaBeanRemote fachadaLogica = localizadorServicios.getServicio1();
@@ -274,8 +295,24 @@ public class Controlador {
 		   articulos.get(3).getUnd_disponibles()<0||
 		   articulos.get(4).getUnd_disponibles()<0) {
 			this.recuprerarSesion();
-			
+						
+						
 			return this.verTienda();
+		}
+		if(stock.getCant_1()>0) {
+			this.crearPago(articulos.get(0));
+		}
+		if(stock.getCant_2()>0) {
+			this.crearPago(articulos.get(1));
+		}
+		if(stock.getCant_3()>0) {
+			this.crearPago(articulos.get(2));
+		}
+		if(stock.getCant_4()>0) {
+			this.crearPago(articulos.get(3));
+		}
+		if(stock.getCant_5()>0) {
+			this.crearPago(articulos.get(4));
 		}
 		
 		String x;

@@ -11,10 +11,13 @@ import org.xml.sax.SAXException;
 
 import dataModel.articulo;
 import dataModel.Estadisticas;
+import dataModel.Pagos;
 import dataModel.ServiceArticulo;
 import dataModel.ServiceArticulosLocal;
 import dataModel.ServiceEstadisticas;
 import dataModel.ServiceEstadisticasLocal;
+import dataModel.ServicePago;
+import dataModel.ServicePagoLocal;
 import dataModel.ServiceUsuario;
 import dataModel.ServiceUsuarioLocal;
 import dataModel.Usuario;
@@ -106,6 +109,12 @@ public class FachadaLogicaBean implements FachadaLogicaBeanRemote {
 	{
 		ServiceArticulosLocal x = new  ServiceArticulo();
 		return x.updateArticulos(stock);
+	}
+
+	@Override
+	public String ingresarPago(Pagos pago) {
+		ServicePagoLocal x = new ServicePago();
+		return x.insertarPago(pago);
 	}
 	
 	//------------------------------------------------------------------------------	
