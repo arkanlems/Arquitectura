@@ -133,6 +133,14 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
+		<display-name>tiendaMain.xhtml</display-name>
+		<from-view-id>/tiendaMain.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>tienda</from-outcome>
+			<to-view-id>/tiendaMain.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
 		<display-name>verEstadisticas.xhtml</display-name>
 		<from-view-id>/verEstadisticas.xhtml</from-view-id>
 		<navigation-case>
