@@ -141,8 +141,8 @@ public class Player {
 	}
 
 	public boolean hasWindafall() {
-		for (Card card : mano) {
-			if (card.isEsWindfall() && (card.getBienes().equals(null))) {
+		for (Card card : tablero) {
+			if (card.isEsWindfall() && (card.getBienes()== null)) {
 				return true;
 			}
 		}
@@ -151,11 +151,15 @@ public class Player {
 
 	public boolean producirRecursos() {
 		for (Card card : tablero) {
-			if (card.getBienes().equals(null) && card.getPoderes().containsKey(6)) {
+			if ( (card.getBienes() == null) && card.getPoderes().containsKey(6)) {
 				return true;
 			}
 		}
 		return false;
+	}
+
+	public void agregarPuntaje(int pv) {
+		puntaje += pv;
 	}
 	
 }

@@ -10,7 +10,7 @@ import java.util.Stack;
 public class GameLoop {
 
 	public int turnos = 0;
-	public int VictoryPoints = 52;
+	public static int VictoryPoints = 48;
 	public Player jugadorEnTurno;
 
 	public static ArrayList<Player> jugadores = new ArrayList<Player>();
@@ -71,10 +71,12 @@ public class GameLoop {
 
 	public static void producir() {
 		for (Player player : jugadores) {
-			if (player.getFaseEscogida() == 6) {
+			if (player.getFaseEscogida() == 7) {
 				generarRecursos(player, true);
 			} else {
+				if (!player.skip()) {
 				generarRecursos(player, false);
+				}
 			}
 		}
 	}
@@ -85,7 +87,16 @@ public class GameLoop {
 	}
 
 	public static void comercio() {
-		// TODO Auto-generated method stub
+		for (Player player : jugadores) {
+			if (player.getFaseEscogida() == 5) {
+				colocarCarta(player, 0, "investigacion");
+				darCartas(player, 1);
+			} else {
+				if (!player.skip()) {
+					colocarCarta(player, 0, "investigacion");
+				}
+			}
+		}
 
 	}
 
@@ -220,12 +231,14 @@ public class GameLoop {
 			if (fase.equals("investigacion")) {
 				pagarCartas(player, carta.getCosto() + i);
 				player.ManoCartaAltablero(carta);
+				darPuntos(player,carta);
 				return true;
 			} else {
 				if (fase.equals("colonizar")) {
 					if (carta.isEsMilitar() && carta.isEsWindfall()) {
 						if (carta.getCosto() <= player.getPoderMilitar()) {
 							player.ManoCartaAltablero(carta);
+							darPuntos(player,carta);
 							colocarBienCarta(carta);
 							return true;
 						} else {
@@ -235,6 +248,7 @@ public class GameLoop {
 					if (carta.isEsMilitar()) {
 						if (carta.getCosto() <= player.getPoderMilitar()) {
 							player.ManoCartaAltablero(carta);
+							darPuntos(player,carta);
 							return true;
 						} else {
 							return false;
@@ -244,14 +258,21 @@ public class GameLoop {
 						pagarCartas(player, carta.getCosto() + i);
 						colocarBienCarta(carta);
 						player.ManoCartaAltablero(carta);
+						darPuntos(player,carta);
 						return true;
 					}
 					pagarCartas(player, carta.getCosto() + i);
 					player.ManoCartaAltablero(carta);
+					darPuntos(player,carta);
 				}
 				return true;
 			}
 		}
+	}
+
+	private static void darPuntos(Player player, Card carta) {
+		VictoryPoints -= carta.getPV();
+		player.agregarPuntaje(carta.getPV());
 	}
 
 	private static void colocarBienCarta(Card carta) {
@@ -264,12 +285,23 @@ public class GameLoop {
 	public static void generarRecursos(Player player, boolean b) 
 	{
 		if(player.producirRecursos())
-		{
-			
+		{		
+			for (Card card : player.getTablero()) {
+				if ((card.getBienes() == null) && card.getPoderes().containsKey(6)) {
+					colocarBienCarta(card);
+				}
+			}
+			if(b && player.hasWindafall())
+			{
+				colocarBienCarta(player.bonusWindfall());
+			}
 		}
-		if(b && player.hasWindafall())
+		else
 		{
-			colocarBienCarta(player.bonusWindfall());
+			if(b && player.hasWindafall())
+			{
+				colocarBienCarta(player.bonusWindfall());
+			}
 		}
 	}
 }

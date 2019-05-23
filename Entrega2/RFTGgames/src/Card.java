@@ -9,7 +9,7 @@ public class Card {
 	private boolean esMilitar;
 	private boolean esWindfall;
 	private boolean enInvestigacion;
-	private Card Bienes = null;
+	private Card Bienes;
 	
 	private HashMap<Integer, String> poderes;
 
