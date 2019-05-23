@@ -34,11 +34,16 @@
 			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-cgmf">Username</label>
 		<h:inputText type="text" id="Nombres"
 			value="#{controlador.usuario.nombres}"
-			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-ofq8">
+			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-ofq8"
+			validatorMessage="(solo se aceptan letras en el nombre.)    "> 
+			<f:validateRegex pattern="[a-zA-Z]+"/>
 		</h:inputText>
+		
 		<h:inputText type="text" id="correro"
 			value="#{controlador.usuario.correo}"
+			validatorMessage = "(correo no valido.)   "
 			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-1vwk">
+			<f:validateRegex pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
 		</h:inputText>
 		<label id="label_2"
 			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-ku4e">Nombres</label>
@@ -46,32 +51,42 @@
 			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-1a2c">Correo</label>
 		<h:inputText type="text" id="apellidos"
 			value="#{controlador.usuario.apellidos}"
+			validatorMessage="(solo se aceptan letras en el apellido.)    "
 			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-f6w2">
+			<f:validateRegex pattern="[a-zA-Z]+"/>
 		</h:inputText>
 		<label id="label_3"
 			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-1mba">Apellidos</label>
 		<h:inputText type="text" id="celular"
 			value="#{controlador.usuario.celular}"
+			validatorMessage="(solo se aceptan numeros en el celular.)    "
 			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-1acw gwd-input-1ycf">
+		<f:validateRegex pattern="[0-9]+"/>
 		</h:inputText>
 		<label id="label_5"
 			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-z2ma">Celular</label>
 		<h:inputText type="text" id="nacionalidad"
 			value="#{controlador.usuario.nacionalidad}"
+			validatorMessage="(solo se aceptan letras en la nacionalidad.)    "
 			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-1acw gwd-input-1j9i">
+		<f:validateRegex pattern="[a-zA-Z]+"/>
 		</h:inputText>
 		<label id="label_7"
 			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-17oy">Nacionalidad</label>
 		<h:inputText type="text" id="idioma"
 			value="#{controlador.usuario.idioma}"
+			validatorMessage="(solo se aceptan letras en el idioma.)    "
 			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-1acw gwd-input-1jtx gwd-input-o81v">
+		<f:validateRegex pattern="[a-zA-Z]+"/>
 		</h:inputText>
 		<label id="label_6"
 			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-13kn gwd-label-130g">Idioma</label>
 		<h:inputText type="text" id="genero"
 			value="#{controlador.usuario.contrasenia}"
+			validatorMessage="(solo se acepta el caracter m (mujer) o h (hombre).)    "
 			class="gwd-input-nqb7 gwd-input-1w0m gwd-input-15hk gwd-input-2gud gwd-input-1acw gwd-input-1jtx gwd-input-1mno">
-		</h:inputText>
+			
+			</h:inputText>
 		<label id="label_8"
 			class="gwd-label-51p8 gwd-label-14ee gwd-label-o37d gwd-label-10wv gwd-label-12xh gwd-label-16yv gwd-label-13kn gwd-label-id8x">Pass</label>
 		<!--  <img src="images/02th-egg-person.jpg" id="02th-egg-person" class="gwd-img-z7al"/> -->
@@ -88,10 +103,17 @@
 		<h:commandButton value="tienda"
 			action="#{controlador.verTienda()}">
 			</h:commandButton>
+			
 </h:form>
-
-
-
+	<marquee>
+	<h:message id="msgName" for="Nombres" style="color:red" />
+	<h:message id="msgName1" for="correro" style="color:red" />
+	<h:message id="msgName2" for="apellidos" style="color:red" />
+	<h:message id="msgName3" for="celular" style="color:red" />
+	<h:message id="msgName4" for="nacionalidad" style="color:red" />
+	<h:message id="msgName5" for="idioma" style="color:red" />
+	<h:message id="msgName6" for="genero" style="color:red" />
+	</marquee>
 </body>
 
 </html>

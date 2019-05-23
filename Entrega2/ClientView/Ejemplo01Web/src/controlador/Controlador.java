@@ -268,6 +268,16 @@ public class Controlador {
 		articulos.get(3).setUnd_disponibles(articulos.get(3).getUnd_disponibles()-stock.getCant_4());
 		articulos.get(4).setUnd_disponibles(articulos.get(4).getUnd_disponibles()-stock.getCant_5());
 		
+		if(articulos.get(0).getUnd_disponibles()<0||
+		   articulos.get(1).getUnd_disponibles()<0||
+		   articulos.get(2).getUnd_disponibles()<0||
+		   articulos.get(3).getUnd_disponibles()<0||
+		   articulos.get(4).getUnd_disponibles()<0) {
+			this.recuprerarSesion();
+			
+			return this.verTienda();
+		}
+		
 		String x;
 		try {
 			x = fachadaLogica.actualizarInventario(articulos);

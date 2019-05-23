@@ -10,7 +10,7 @@
   <nodes xsi:type="pageflow:PFPage" name="listarUsuarios.xhtml" x="338" y="1149" id="pf154173862897624" referenceLink="//@navigationRule.10/@fromViewId|" outlinks="pf154174075515426" inlinks="pf154174075515427" path="/listarUsuarios.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="listadoUsuarios.xhtml" x="122" y="1351" id="pf154174075515428" referenceLink="//@navigationRule.9/@fromViewId|" outlinks="pf154174075515427" inlinks="pf154174075515425" path="/listadoUsuarios.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="verEstadisticas.xhtml" x="234" y="672" id="pf15565177958560" referenceLink="//@navigationRule.15/@fromViewId|" outlinks="pf15585869726060" inlinks="pf15565180542071" path="/verEstadisticas.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="tiendaMain.xhtml" x="804" y="804" id="pf15582485454291" referenceLink="//@navigationRule.15/@fromViewId|" outlinks="pf15582832253072" inlinks="pf15582485454290" path="/tiendaMain.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="tiendaMain.xhtml" x="804" y="804" id="pf15582485454291" referenceLink="//@navigationRule.15/@navigationCase.0/@toViewId|" outlinks="pf15582832253072 pf15585933806290" inlinks="pf15582485454290 pf15585933806290" path="/tiendaMain.xhtml"/>
   <links id="pf15416594930862" target="pf15416594930863" source="pf15414815432840" outcome="ingreso"/>
   <links id="pf15416596391194" target="pf15416596391205" source="pf15414815432840" outcome="adicionarUsuarios"/>
   <links id="pf154171353760110" target="pf154171353760112" source="pf15416594930863" outcome="fracaso">
@@ -36,4 +36,5 @@
   <links id="pf15582485454290" target="pf15582485454291" source="pf154171353760113" outcome="tienda"/>
   <links id="pf15582832253072" target="pf154171353760113" source="pf15582485454291" outcome="back"/>
   <links id="pf15585869726060" target="pf154171353760113" source="pf15565177958560" outcome="back"/>
+  <links id="pf15585933806290" target="pf15582485454291" source="pf15582485454291" outcome="tienda"/>
 </pageflow:Pageflow>
