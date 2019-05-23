@@ -43,6 +43,7 @@ public class CardParser {
 				poderes.put(fase,poder);
 			}
 			carta.setPoderes(poderes);
+			carta.setBienes(null);
 			//System.out.println(carta);
 			
 			mazo.add(carta);
