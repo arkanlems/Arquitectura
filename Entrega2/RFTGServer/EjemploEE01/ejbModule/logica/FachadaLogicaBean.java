@@ -1,5 +1,6 @@
 package logica;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 import javax.ejb.Remote;
@@ -101,7 +102,7 @@ public class FachadaLogicaBean implements FachadaLogicaBeanRemote {
 	}
 	
 	@Override
-	public String actualizarInventario(List<articulo> stock)
+	public String actualizarInventario(List<articulo> stock) throws MalformedURLException
 	{
 		ServiceArticulosLocal x = new  ServiceArticulo();
 		return x.updateArticulos(stock);

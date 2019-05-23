@@ -2,6 +2,7 @@ package dataModel;
 
 import java.io.Serializable;
 
+import javax.ejb.Stateful;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
  * The persistent class for the usuarios database table.
  * 
  */
+@Stateful
 @Entity
 @Table(name="usuarios")
 @NamedQuery(name="Usuario.findAll", query="SELECT u FROM Usuario u")

@@ -1,11 +1,13 @@
 package dataModel;
 import java.io.Serializable;
 
+import javax.ejb.Stateful;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+@Stateful
 @Entity
 @Table(name="estadisticas")
 @NamedQuery(name="Estadisticas.findAll", query="SELECT e FROM Estadisticas e")

@@ -1,5 +1,6 @@
 package logica;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 import javax.ejb.Remote;
@@ -21,6 +22,6 @@ public interface FachadaLogicaBeanRemote {
 	public Estadisticas findEstadisticas(int id);
 	public String insertarEstadisticas(Estadisticas estadisticas);
 	public List<articulo> getTienda() throws ParserConfigurationException, SAXException;
-	public String actualizarInventario(List<articulo> stock);
+	public String actualizarInventario(List<articulo> stock) throws MalformedURLException;
 	
 }

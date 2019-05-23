@@ -10,26 +10,34 @@ namespace RTFGStoreAPI.Controllers
 {
     public class ArticulosController : ApiController
     {
+     
         private proyectoasEntities db = new proyectoasEntities();
 
         public IQueryable<articulo> GetArticulos()
         {
+
+            Console.Write("entreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
             return db.articulo;
         }
-        public HttpResponseMessage PostArticulos(articulo art)
+
+       
+        public bool PostArticulos( articulo item)
         {
-            if (!ModelState.IsValid)
+
+            if (item == null)
             {
-                db.articulo.Add(art);
-                db.SaveChanges();
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, art);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = art.uniqueid}));
-                return response;
+                throw new ArgumentNullException("item");
             }
-            else
+            articulo actulizado = db.articulo.Where(a => a.uniqueid == item.uniqueid).FirstOrDefault();
+            if (actulizado == null)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                return false;
             }
+            actulizado.und_disponibles = item.und_disponibles;
+            db.SaveChanges();
+            return true;
+            
+
 
         }
 

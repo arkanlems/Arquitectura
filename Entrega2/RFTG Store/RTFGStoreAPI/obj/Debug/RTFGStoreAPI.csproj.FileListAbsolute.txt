@@ -62,7 +62,6 @@ C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\Microso
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\MySql.Data.dll
-C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\MySql.Data.Entity.EF6.dll
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\Newtonsoft.Json.dll
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\System.Net.Http.Formatting.dll
@@ -79,7 +78,6 @@ C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\WebGrea
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\EntityFramework.xml
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\EntityFramework.SqlServer.xml
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\MySql.Data.xml
-C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\MySql.Data.Entity.EF6.xml
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\Newtonsoft.Json.xml
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\System.Net.Http.Formatting.xml
 C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\System.Web.Helpers.xml
@@ -231,3 +229,8 @@ D:\Git\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\obj\Debug\RTFGStoreAPI.dll
 D:\Git\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\obj\Debug\RTFGStoreAPI.pdb
 D:\Git\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\MySql.Data.EntityFramework.dll
 D:\Git\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\MySql.Data.EntityFramework.xml
+C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\BouncyCastle.Crypto.dll
+C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\Google.Protobuf.dll
+C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\MySql.Data.EntityFramework.dll
+C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\Google.Protobuf.xml
+C:\Users\Lemus\Desktop\Arquitectura\Entrega2\RFTG Store\RTFGStoreAPI\bin\MySql.Data.EntityFramework.xml

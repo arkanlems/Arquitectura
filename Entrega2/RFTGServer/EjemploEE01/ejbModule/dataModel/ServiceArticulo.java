@@ -1,14 +1,22 @@
 package dataModel;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,6 +27,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.jboss.resteasy.spi.HttpResponse;
 import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -26,6 +35,10 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+
+import com.sun.jndi.toolkit.url.Uri;
+
+import sun.net.www.http.HttpClient;
 
 public class ServiceArticulo implements ServiceArticulosLocal {
 	private EntityManagerFactory emf;
@@ -118,31 +131,65 @@ public class ServiceArticulo implements ServiceArticulosLocal {
 		return "";
 	}
 
-	public String updateArticulos(List<articulo> ar) {
-		EntityManager em = emf.createEntityManager();
+	// http://localhost:58633/api/Articulos
+	public String updateArticulos(List<articulo> ar) throws MalformedURLException {
+
+		/*
+		 * URL obj = new URL("http://localhost:58633/api/Articulos"); HttpURLConnection
+		 * con;
+		 * 
+		 * try { con = (HttpURLConnection) obj.openConnection();
+		 * con.setRequestMethod("POST"); con.setRequestProperty("Accept",
+		 * "application/xml");
+		 * 
+		 * } catch (IOException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 */
+
 		try {
+			
 			for (articulo articulo : ar) {
-
+			
+				
+				System.out.println("entre a actualizar articulo");
+				List<String> response = new ArrayList<>();
 				URL url;
-				try {
-					url = new URL("http://localhost:58633/api/Articulos");
-					HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-					conn.setRequestMethod("POST");
-					conn.setRequestProperty("Accept", "application/xml");
+				HttpURLConnection conn;
+				url = new URL("http://localhost:58633/api/Articulos");
+				conn = (HttpURLConnection) url.openConnection();
+				conn.setRequestMethod("POST");
+				conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
 
-				} catch (IOException e) {
-					e.printStackTrace();
+				conn.setDoInput(true);
+				conn.setDoOutput(true);
+
+				System.out.println("voy a actualizar la expancion" + articulo.getNombre_articulo());
+				String input = "{\"descripcion\":\"" + articulo.getDescripcion() + "\",\"nombre_articulo\":\""
+						+ articulo.getNombre_articulo() + "\",\"und_disponibles\":\"" + articulo.getUnd_disponibles()
+						+ "\",\"uniqueid\":\"" + articulo.getUniqueid() + "\"}";
+				System.out.println(input);
+				OutputStream os = conn.getOutputStream();
+				os.write(input.getBytes());
+				os.flush();
+
+				
+
+				BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+
+				String output;
+				System.out.println("Output from Server .... \n");
+				while ((output = br.readLine()) != null) {
+					System.out.println(output);
 				}
-
+				conn.disconnect();
 			}
-
-			System.out.println("getResult executed");
-
-			return "compra";
-
-		} finally {
-			em.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
+		return "compra";
+
 	}
 
 }

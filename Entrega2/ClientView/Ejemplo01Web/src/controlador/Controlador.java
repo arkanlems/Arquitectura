@@ -1,6 +1,7 @@
 package controlador;
 
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,9 +52,9 @@ public class Controlador {
 	public List<Usuario> listaUsuarios;	
 	
 	
-	public String userName;
+	public static String userName;
 	
-	public String password;
+	public static String password;
 
 	public Controlador() {
 		// TODO Auto-generated constructor stub
@@ -183,7 +184,7 @@ public class Controlador {
 	}	
 	
 	public String verEstadisticas() {
-		
+		this.recuprerarSesion();
 		return "verEstadisticas";
 	}	
 	
@@ -251,6 +252,7 @@ public class Controlador {
 	}
 	
 	public String goBack() {
+		this.recuprerarSesion();
 		return "back";
 	}
 	
@@ -266,8 +268,28 @@ public class Controlador {
 		articulos.get(3).setUnd_disponibles(articulos.get(3).getUnd_disponibles()-stock.getCant_4());
 		articulos.get(4).setUnd_disponibles(articulos.get(4).getUnd_disponibles()-stock.getCant_5());
 		
-		String x = fachadaLogica.actualizarInventario(articulos);
-		System.out.println(x);
+		String x;
+		try {
+			x = fachadaLogica.actualizarInventario(articulos);
+			System.out.println(x);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		this.recuprerarSesion();
+		
+		
+		
 		return "back";			
+	}
+	private void recuprerarSesion() {
+		LocalizadorServicios localizadorServicios = new LocalizadorServicios();
+		FachadaLogicaBeanRemote fachadaLogica = localizadorServicios.getServicio1();
+
+		System.out.println("Solicitud recibida: " + userName + " " + password);
+		usuario = fachadaLogica.findUsuario(userName, password);
+		updateUsuario = fachadaLogica.findUsuario(userName, password);
+		estadisticas = fachadaLogica.findEstadisticas(usuario.getid());
 	}
 }

@@ -1,5 +1,6 @@
 package dataModel;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 import javax.ejb.Local;
@@ -11,5 +12,5 @@ import org.xml.sax.SAXException;
 public interface ServiceArticulosLocal {
 
 	public List<articulo> getArticulos() throws ParserConfigurationException, SAXException;
-	public String updateArticulos (List<articulo> ar);
+	public String updateArticulos (List<articulo> ar) throws MalformedURLException;
 }

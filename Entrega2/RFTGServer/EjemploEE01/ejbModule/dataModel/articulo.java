@@ -34,6 +34,15 @@ public class articulo implements Serializable {
 	{
 		
 	}
+	
+	@Override
+	public String toString() {
+		return "articulo [uniqueid=" + uniqueid + 
+				", nombre_articulo=" + nombre_articulo + 
+				", und_disponibles="+ und_disponibles + 
+				", descripcion=" + descripcion + "]";
+	}
+
 
 	public int getUniqueid() {
 		return uniqueid;
@@ -70,5 +79,6 @@ public class articulo implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
 	
 }
