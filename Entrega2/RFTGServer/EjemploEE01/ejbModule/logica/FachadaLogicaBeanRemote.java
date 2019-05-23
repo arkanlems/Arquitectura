@@ -10,6 +10,7 @@ import org.xml.sax.SAXException;
 
 import dataModel.articulo;
 import dataModel.Estadisticas;
+import dataModel.Pagos;
 import dataModel.Usuario;
 
 @Remote
@@ -23,5 +24,6 @@ public interface FachadaLogicaBeanRemote {
 	public String insertarEstadisticas(Estadisticas estadisticas);
 	public List<articulo> getTienda() throws ParserConfigurationException, SAXException;
 	public String actualizarInventario(List<articulo> stock) throws MalformedURLException;
+	public String ingresarPago (Pagos pago);
 	
 }
